@@ -38,9 +38,9 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
       <div className="max-w-[1320px] mx-auto px-6 relative z-10">
         {/* Newsletter card */}
         <div
-          className="relative overflow-hidden rounded-[20px] px-10 md:px-16 py-14 md:py-20"
+          className="relative overflow-hidden rounded-[30px] px-10 md:px-16 py-14 md:py-20"
           style={{
-            background: "linear-gradient(135deg, #650c0e 0%, #3a0507 50%, #1a0203 100%)",
+            background: "linear-gradient(74.03deg, #7B2222 -1.43%, #501B1B 21.16%, #501B1B 21.17%, #AC2626 65.86%, #4B0909 99.26%)",
           }}
         >
           <video
@@ -119,7 +119,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                   <button
                     type="submit"
                     aria-label="Submit"
-                    className="w-[44px] h-[44px] rounded-full bg-[#2a0304] hover:bg-[#1a0203] transition-colors flex items-center justify-center shrink-0"
+                    className="w-[44px] h-[44px] rounded-full bg-[#4A0E0E] hover:bg-[#1a0203] transition-colors flex items-center justify-center shrink-0"
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M5 12h14M12 5l7 7-7 7" />
@@ -154,7 +154,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                   <button
                     type="submit"
                     aria-label="Submit"
-                    className="w-[44px] h-[44px] rounded-full bg-[#2a0304] hover:bg-[#1a0203] transition-colors flex items-center justify-center shrink-0"
+                    className="w-[44px] h-[44px] rounded-full bg-[#4A0E0E] hover:bg-[#1a0203] transition-colors flex items-center justify-center shrink-0"
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M5 12h14M12 5l7 7-7 7" />

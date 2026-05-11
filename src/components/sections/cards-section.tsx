@@ -54,8 +54,8 @@ export default function CardsSection() {
           {CARDS.map((card, i) => (
             <motion.div
               key={card.id}
-              className="relative rounded-[5px] overflow-hidden flex flex-col border border-black/10"
-              style={{ backgroundColor: card.bg, minHeight: "clamp(360px, 45vw, 520px)" }}
+              className="group relative rounded-[5px] overflow-hidden flex flex-col border border-black/10"
+              style={{ backgroundColor: card.bg, minHeight: "clamp(480px, 52vw, 706px)" }}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
@@ -66,7 +66,7 @@ export default function CardsSection() {
                 <div className="h-[6px] bg-[#650c0e] w-full shrink-0" />
               )}
 
-              <div className="p-6 md:p-8 flex flex-col gap-4 flex-1">
+              <div className="p-6 md:p-8 flex flex-col gap-4">
                 <h3
                   className="text-[26px] md:text-[30px] font-normal leading-tight"
                   style={{
@@ -85,20 +85,24 @@ export default function CardsSection() {
               </div>
 
               {card.video ? (
-                <video
-                  src={card.video}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-[220px] md:h-[280px] object-cover mt-auto"
-                />
+                <div className="flex-1 overflow-hidden flex items-center">
+                  <video
+                    src={card.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full object-cover"
+                  />
+                </div>
               ) : card.image ? (
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="w-full h-[220px] md:h-[280px] object-cover mt-auto"
-                />
+                <div className="flex-1 overflow-hidden flex items-center justify-center px-4 pb-6">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full max-h-[320px] object-contain transition-transform duration-500 group-hover:scale-130"
+                  />
+                </div>
               ) : null}
             </motion.div>
           ))}

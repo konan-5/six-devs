@@ -18,7 +18,7 @@ export default function HeroSection() {
   const { fadeUp, fadeIn, transition, slowTransition } = useMotionConfig();
 
   return (
-    <section className="relative min-h-screen lg:min-h-0 lg:h-[900px] bg-[#060a10] overflow-hidden flex flex-col">
+    <section className="relative min-h-screen lg:min-h-0 lg:h-[800px] bg-[#060a10] overflow-hidden flex flex-col pt-10">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
           className="absolute top-0 left-0 w-[230px] h-[230px] rounded-full opacity-30"
@@ -101,10 +101,14 @@ export default function HeroSection() {
                 alt="Architectural 3D render"
                 className="object-contain w-full h-full"
               />
+              <div className="absolute inset-y-0 left-0 w-2/5 pointer-events-none" style={{ background: "linear-gradient(to right, #060a10, transparent)" }} />
+              <div className="absolute inset-y-0 right-0 w-1/6 pointer-events-none" style={{ background: "linear-gradient(to left, #060a10, transparent)" }} />
+              <div className="absolute inset-x-0 top-0 h-1/4 pointer-events-none" style={{ background: "linear-gradient(to bottom, #060a10, transparent)" }} />
+              <div className="absolute inset-x-0 bottom-0 h-1/5 pointer-events-none" style={{ background: "linear-gradient(to top, #060a10, transparent)" }} />
             </motion.div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-6 md:gap-16 py-8 md:py-10 mt-12 md:mt-16">
+          <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-6 md:gap-16 py-8 mt-auto">
             {EXPERTISE_ITEMS.map((item, i) => (
               <motion.div
                 key={item.label}

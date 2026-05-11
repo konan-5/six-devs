@@ -55,10 +55,10 @@ export default function Navbar() {
 
         <Link
           to="/contact"
-          className="hidden md:flex items-center gap-4 border border-[#060a10]/30 rounded-full pl-6 pr-1.5 h-[52px] text-[14px] font-medium uppercase tracking-[0.64px] text-[#060a10] hover:border-[#060a10]/60 transition-colors font-sans"
+          className="hidden md:flex items-center gap-4 border border-[#0e131b] rounded-full pl-6 pr-1.5 h-[52px] text-[14px] font-medium uppercase tracking-[0.64px] text-[#0e131b] hover:border-[#0e131b]/70 transition-colors font-sans"
         >
-          Inquiry
-          <span className="flex items-center justify-center bg-accent rounded-full w-[40px] h-[40px] shrink-0">
+          Make Inquiry
+          <span className="flex items-center justify-center bg-[#650c0e] rounded-full w-[40px] h-[40px] shrink-0">
             <ArrowRight className="w-5 h-5 text-white" />
           </span>
         </Link>

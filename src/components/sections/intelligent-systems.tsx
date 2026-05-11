@@ -12,7 +12,7 @@ export default function IntelligentSystems() {
   const { slideLeft, slideRight, slowTransition, transition } = useMotionConfig();
 
   return (
-    <section className="bg-[#060a10] py-16 md:py-24">
+    <section className="bg-[#111111] py-16 md:py-24">
       <div className="max-w-[1320px] mx-auto px-6">
         <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
           <motion.div
@@ -23,7 +23,18 @@ export default function IntelligentSystems() {
             viewport={VP}
             transition={transition}
           >
-            <IntelligentSystemsIcon />
+            <div className="relative inline-block self-start">
+              <div
+                className="absolute w-[75px] h-[75px] rounded-full pointer-events-none"
+                style={{
+                  background: "linear-gradient(180deg, rgba(253,253,253,0.1) 0%, rgba(6,10,16,0.1) 100%)",
+                  transform: "rotate(30.69deg)",
+                  left: 0,
+                  top: 0,
+                }}
+              />
+              <IntelligentSystemsIcon />
+            </div>
 
             <h2
               className="text-[32px] md:text-[44px] font-normal text-white"
@@ -59,7 +70,8 @@ export default function IntelligentSystems() {
             <img
               src={SYSTEM_IMAGE}
               alt=""
-              className="w-full max-w-[540px] object-contain"
+              className="w-full max-w-[640px] object-contain"
+              style={{ mixBlendMode: "lighten" }}
             />
           </motion.div>
         </div>

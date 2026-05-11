@@ -35,16 +35,27 @@ export default function TechnicalDomains() {
             viewport={VP}
             transition={transition}
           >
-            <CloudNativeIcon />
+            <div className="relative inline-block self-start">
+              <div
+                className="absolute w-[75px] h-[75px] rounded-full pointer-events-none"
+                style={{
+                  background: "linear-gradient(180deg, rgba(101,12,14,0.1) 0%, rgba(253,253,253,0.1) 100%)",
+                  transform: "rotate(-19.98deg)",
+                  left: 0,
+                  top: 0,
+                }}
+              />
+              <CloudNativeIcon />
+            </div>
 
             <h3
-              className="text-[26px] md:text-[32px] font-normal text-[#060a10]"
+              className="text-[26px] md:text-[32px] font-normal text-[#061b31]"
               style={{ fontFamily: "var(--font-noto-serif)" }}
             >
               Cloud-Native Architectures
             </h3>
 
-            <p className="text-[15px] md:text-[16px] text-[#060a10]/70 leading-[1.8] font-sans max-w-[520px]">
+            <p className="text-[15px] md:text-[16px] text-[#060a10]/80 leading-[1.8] font-sans max-w-[520px]">
               Building resilient, distributed systems capable of handling
               millions of concurrent users with sub-millisecond latency.
             </p>
@@ -71,7 +82,7 @@ export default function TechnicalDomains() {
             <img
               src={DOMAIN_IMAGE}
               alt=""
-              className="w-full max-w-[540px] object-contain"
+              className="w-full max-w-[640px] object-contain"
             />
           </motion.div>
         </div>

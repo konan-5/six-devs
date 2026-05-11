@@ -11,10 +11,10 @@ export default function NewsletterSection() {
     >
       <div className="max-w-[1320px] mx-auto px-6">
         <div
-          className="relative overflow-hidden rounded-[20px] px-10 md:px-16 py-14 md:py-20"
+          className="relative overflow-hidden rounded-[30px] px-10 md:px-16 py-14 md:py-20"
           style={{
             background:
-              "linear-gradient(135deg, #650c0e 0%, #3a0507 50%, #1a0203 100%)",
+              "linear-gradient(74.03deg, #7B2222 -1.43%, #501B1B 21.16%, #501B1B 21.17%, #AC2626 65.86%, #4B0909 99.26%)",
           }}
         >
           <div
