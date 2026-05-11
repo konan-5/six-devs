@@ -184,7 +184,7 @@ export default function ProjectsPage() {
             </motion.div>
 
             <motion.div
-              className="w-full lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
+              className="group w-full lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
@@ -194,7 +194,7 @@ export default function ProjectsPage() {
               <img
                 src={CS01_IMAGE}
                 alt="Aura Ledger Engine"
-                className="w-full h-full object-cover mix-blend-luminosity"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>
           </div>
@@ -413,7 +413,7 @@ export default function ProjectsPage() {
             </motion.div>
 
             <motion.div
-              className="w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
+              className="group w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
@@ -423,7 +423,7 @@ export default function ProjectsPage() {
               <img
                 src={CS03_IMAGE}
                 alt="Neural Stream Orchestrator"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>
           </div>
