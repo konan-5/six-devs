@@ -11,7 +11,6 @@ const NAV_LINKS = [
 ];
 
 const LOGO_ASSET = "/assets/logo-mark.png";
-const ARROW_ASSET = "/assets/button-arrow.svg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

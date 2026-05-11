@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { motion } from "motion/react";
 import { useMotionConfig } from "@/hooks/use-motion-config";
 import PageLayout from "@/components/layout/page-layout";
@@ -19,7 +18,7 @@ const AI_IMAGE = "/assets/expertise-ai-image.png";
 const VP = { once: true, margin: "-100px" };
 
 export default function ExpertisePage() {
-  const { fadeUp, fadeIn, slideLeft, slideRight, transition, slowTransition } = useMotionConfig();
+  const { fadeUp, slideLeft, slideRight, transition, slowTransition } = useMotionConfig();
 
   return (
     <PageLayout>
