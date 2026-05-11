@@ -139,7 +139,6 @@ export default function ApproachPage() {
               <div className="flex flex-row gap-[25px] w-max">
                 {TEAM_MEMBERS.map((member, i) => {
                   const isFeature = i === 3;
-                  const isLuminosity = [0, 2, 4, 5].includes(i);
                   return (
                     <div key={i} className="group relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden">
                       <img
