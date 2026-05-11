@@ -10,6 +10,8 @@ import {
 import Web2Icon from "@/components/svg/Web2Icon";
 import Web3Icon from "@/components/svg/Web3Icon";
 import AIModelIcon from "@/components/svg/AIModelIcon";
+import AuditingIcon from "@/components/svg/AuditingIcon";
+import EVMCustomizationIcon from "@/components/svg/EVMCustomizationIcon";
 
 const WEB2_IMAGE = "/assets/expertise-web2-image.png";
 const WEB3_IMAGE = "/assets/expertise-web3-image.png";
@@ -23,7 +25,7 @@ export default function ExpertisePage() {
   return (
     <PageLayout>
       {/* Header */}
-      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-[117px]">
+      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-10">
         <video
           autoPlay
           loop
@@ -188,7 +190,7 @@ export default function ExpertisePage() {
       {/* Web3 Protocols */}
       <section className="bg-[#111] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <motion.div
               className="w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
               variants={slideLeft}
@@ -223,22 +225,32 @@ export default function ExpertisePage() {
                 matters.
               </p>
               <div className="flex flex-col gap-6 pt-4">
-                <div className="border-t border-white/10 pt-6">
-                  <p className="text-[14px] uppercase tracking-[2.4px] text-white font-sans mb-2">
-                    Auditing
-                  </p>
-                  <p className="text-[16px] text-white/70 font-sans">
-                    Zero-compromise security analysis of existing logic.
-                  </p>
-                </div>
-                <div className="border-t border-white/10 pt-6">
-                  <p className="text-[14px] uppercase tracking-[2.4px] text-white font-sans mb-2">
-                    EVM Customization
-                  </p>
-                  <p className="text-[16px] text-white/70 font-sans">
-                    Bespoke protocol engineering on Ethereum and L2s.
-                  </p>
-                </div>
+                {[
+                  {
+                    Icon: AuditingIcon,
+                    label: "Auditing",
+                    description: "Zero-compromise security analysis of existing logic.",
+                  },
+                  {
+                    Icon: EVMCustomizationIcon,
+                    label: "EVM Customization",
+                    description: "Bespoke protocol engineering on Ethereum and L2s.",
+                  },
+                ].map(({ Icon, label, description }) => (
+                  <div key={label} className="flex items-start gap-4 border-t border-white/10 pt-6">
+                    <div className="shrink-0 mt-0.5">
+                      <Icon />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <p className="text-[14px] uppercase tracking-[2.4px] text-white font-sans">
+                        {label}
+                      </p>
+                      <p className="text-[16px] text-white/70 font-sans">
+                        {description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
