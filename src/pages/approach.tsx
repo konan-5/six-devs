@@ -1,13 +1,11 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useMotionConfig } from "@/hooks/use-motion-config";
 import PageLayout from "@/components/layout/page-layout";
 
-const PHASE01_IMAGE = "/assets/approach-phase01-image.png";
-const PHASE02_IMAGE = "/assets/approach-phase02-image.png";
-const PHASE03_IMAGE = "/assets/approach-phase03-image.png";
+const METHODOLOGY_IMAGE = "/assets/approach-phase01-image.png";
 const INTEGRITY_IMAGE = "/assets/approach-integrity-image.png";
 const EXPERTISE_IMAGE = "/assets/approach-expertise-image.png";
 
@@ -20,11 +18,30 @@ const TEAM_MEMBERS = [
   { name: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-6.png" },
 ];
 
+const PHASES = [
+  {
+    number: "01",
+    title: "Discovery & Blueprints",
+    body: "We don't start with code. We start with structural analysis. We map every edge case, every potential bottleneck, and every security vector to create a technical blueprint that serves as the project's constitution.",
+  },
+  {
+    number: "02",
+    title: "Foundational Assembly",
+    body: "Using the blueprint, we forge the core infrastructure. This is where sovereignty is built—ensuring the system is self-contained, performant, and independent of fragile third-party dependencies.",
+  },
+  {
+    number: "03",
+    title: "The Stress Test",
+    body: "A SixDevs product never leaves the lab without a trial by fire. We subject the system to simulated chaos—network partitioning, massive load spikes, and adversarial attacks—to ensure its signature remains unbroken.",
+  },
+];
+
 const VP = { once: true, margin: "-80px" };
 
 export default function ApproachPage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activePhase, setActivePhase] = useState(0);
   const { fadeUp, fadeIn, transition, slowTransition } = useMotionConfig();
 
   useEffect(() => {
@@ -45,12 +62,9 @@ export default function ApproachPage() {
   return (
     <PageLayout>
       {/* Header */}
-      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-[117px]">
+      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-20">
         <video
-          autoPlay
-          loop
-          muted
-          playsInline
+          autoPlay loop muted playsInline
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           style={{ mixBlendMode: "screen", opacity: 0.08 }}
           aria-hidden="true"
@@ -59,47 +73,33 @@ export default function ApproachPage() {
         </video>
         <div
           className="absolute rounded-full pointer-events-none"
-          style={{
-            width: 230,
-            height: 230,
-            top: -85,
-            left: -39,
-            background: "#7D1113",
-            filter: "blur(175px)",
-          }}
+          style={{ width: 230, height: 230, top: -85, left: -39, background: "#7D1113", filter: "blur(175px)" }}
           aria-hidden="true"
         />
         <div className="max-w-[1320px] mx-auto px-6 flex flex-col items-center text-center pt-10 pb-16 gap-6">
           <motion.p
             className="text-[18px] font-light uppercase tracking-[0.17em] text-[#fbe9a2]"
             style={{ fontFamily: "var(--font-poppins)" }}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
+            variants={fadeUp} initial="hidden" animate="visible"
             transition={{ ...transition, delay: 0 }}
           >
             Our Philosophy
           </motion.p>
           <motion.h1
-            className="text-[40px] md:text-[64px] lg:text-[92px] font-normal leading-[1] text-white max-w-[1223px]"
+            className="text-[40px] md:text-[64px] lg:text-[92px] font-normal leading-[1.05] text-white max-w-[1223px]"
             style={{ fontFamily: "var(--font-noto-serif)" }}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
+            variants={fadeUp} initial="hidden" animate="visible"
             transition={{ ...transition, delay: 0.1 }}
           >
-            Engineering is not a service; it is a signature.
+            Engineering is not a service it is a signature.
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] max-w-[890px] font-sans"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
+            variants={fadeUp} initial="hidden" animate="visible"
             transition={{ ...transition, delay: 0.2 }}
           >
             SixDevs was founded on the principle that code is structural integrity. We do not
-            "build features"—we architect sovereign systems designed for the next century of
-            computing.
+            "build features"—we architect sovereign systems designed for the next century of computing.
           </motion.p>
         </div>
       </section>
@@ -109,38 +109,25 @@ export default function ApproachPage() {
         <div className="flex flex-col items-center gap-10">
           <motion.div
             className="flex flex-col items-center gap-[38px] px-6 w-full max-w-[871px] mx-auto text-center"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
-            transition={transition}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP} transition={transition}
           >
             <div className="flex flex-col items-center gap-6 max-w-[516px] w-full">
-              <h2
-                className="text-[46px] md:text-[55px] font-normal text-[#0a0402]"
-                style={{ fontFamily: "var(--font-noto-serif)" }}
-              >
+              <h2 className="text-[46px] md:text-[55px] font-normal text-[#0a0402]" style={{ fontFamily: "var(--font-noto-serif)" }}>
                 The Collective
               </h2>
-              <p
-                className="text-[18px] uppercase tracking-[0.13em] font-sans"
-                style={{ color: "#650c0e" }}
-              >
+              <p className="text-[18px] uppercase tracking-[0.13em] font-sans" style={{ color: "#650c0e" }}>
                 Six Sovereign Engineers. One Unified Ethos.
               </p>
             </div>
-            <p className="text-[16px] text-[#0a0402] leading-[27px] font-sans">
+            <p className="text-[16px] text-[#0a0402] leading-[27px] font-sans text-center">
               Every project is personally overseen by our six founding partners. No junior
               associates. No hand-offs. Direct engineering authority from inception to deployment.
             </p>
           </motion.div>
 
           <motion.div
-            className="max-w-[1320px] w-full mx-auto px-6"
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
+            className="max-w-[1920px] w-full mx-auto px-6"
+            variants={fadeIn} initial="hidden" whileInView="visible" viewport={VP}
             transition={{ ...slowTransition, delay: 0.1 }}
           >
             <div
@@ -149,45 +136,38 @@ export default function ApproachPage() {
               style={{ scrollbarWidth: "none" }}
               onScroll={handleScroll}
             >
-            <div className="flex flex-row gap-[25px] w-max">
-              {TEAM_MEMBERS.map((member, i) => {
-                const isFeature = i === 3;
-                const isLuminosity = [0, 2, 4, 5].includes(i);
-                return (
-                  <div
-                    key={i}
-                    className="relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden"
-                  >
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                      style={isLuminosity ? { mixBlendMode: "luminosity" } : undefined}
-                    />
-                    <div
-                      className="absolute inset-x-0 bottom-0 rounded-b-[10px]"
-                      style={{
-                        height: isFeature ? "164px" : "138px",
-                        background: isFeature
-                          ? "linear-gradient(180deg, rgba(100,12,13,0) 0%, #640C0D 100%)"
-                          : "linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%)",
-                      }}
-                    />
-                    <div className="absolute bottom-8 left-[39px]">
-                      <p
-                        className="text-[30px] font-normal text-white"
-                        style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "51px" }}
-                      >
-                        {member.name}
-                      </p>
-                      <p className="text-[16px] text-white font-sans" style={{ lineHeight: "27px" }}>
-                        {member.role}
-                      </p>
+              <div className="flex flex-row gap-[25px] w-max">
+                {TEAM_MEMBERS.map((member, i) => {
+                  const isFeature = i === 3;
+                  const isLuminosity = [0, 2, 4, 5].includes(i);
+                  return (
+                    <div key={i} className="relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden">
+                      <img
+                        src={member.image} alt={member.name}
+                        className="w-full h-full object-cover"
+                        style={isLuminosity ? { mixBlendMode: "luminosity" } : undefined}
+                      />
+                      <div
+                        className="absolute inset-x-0 bottom-0 rounded-b-[10px]"
+                        style={{
+                          height: isFeature ? "164px" : "138px",
+                          background: isFeature
+                            ? "linear-gradient(180deg, rgba(100,12,13,0) 0%, #640C0D 100%)"
+                            : "linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%)",
+                        }}
+                      />
+                      <div className="absolute bottom-8 left-[39px]">
+                        <p className="text-[30px] font-normal text-white" style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "51px" }}>
+                          {member.name}
+                        </p>
+                        <p className="text-[16px] text-white font-sans" style={{ lineHeight: "27px" }}>
+                          {member.role}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
 
@@ -207,150 +187,162 @@ export default function ApproachPage() {
       <section className="bg-[#fdfdfd] py-20 border-t border-black/5">
         <div className="max-w-[1320px] mx-auto px-6">
           <motion.div
-            className="flex flex-col gap-4 mb-16"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
-            transition={transition}
+            className="flex flex-col items-center gap-4 mb-16 text-center"
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP} transition={transition}
           >
-            <p
-              className="text-[14px] uppercase tracking-[2.4px] font-sans"
-              style={{ color: "#650c0e" }}
-            >
-              The Methodology / PHASE 01 — 03
+            <p className="text-[14px] md:text-[18px] uppercase tracking-[0.13em] font-sans" style={{ color: "#650c0e" }}>
+              The Methodology / Phase 01 — 03
             </p>
             <h2
-              className="text-[40px] md:text-[55px] font-normal text-[#0a0402] max-w-[639px]"
+              className="text-[40px] md:text-[55px] font-normal text-[#0a0402] leading-[1.05]"
               style={{ fontFamily: "var(--font-noto-serif)" }}
             >
-              The Rigorous Path from Concept to Concrete.
+              The Rigorous Path from<br />Concept to Concrete.
             </h2>
           </motion.div>
 
-          {/* Phase 01 + 02 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            {[
-              {
-                phase: "Phase 01",
-                title: "Discovery & Blueprints",
-                body: "We don't start with code. We start with structural analysis. We map every edge case, every potential bottleneck, and every security vector to create a technical blueprint that serves as the project's constitution.",
-                image: PHASE01_IMAGE,
-                imageAlt: "Discovery & Blueprints",
-                list: null,
-              },
-              {
-                phase: "Phase 02",
-                title: "Foundational Assembly",
-                body: "Using the blueprint, we forge the core infrastructure. This is where sovereignty is built—ensuring the system is self-contained, performant, and independent of fragile third-party dependencies.",
-                image: PHASE02_IMAGE,
-                imageAlt: "Foundational Assembly",
-                list: ["Low-Latency Kernels", "Zero-Trust Architecture", "Immutable Deployment"],
-              },
-            ].map(({ phase, title, body, image, imageAlt, list }, i) => (
-              <motion.div
-                key={phase}
-                className="bg-white border border-black/10 rounded-[5px] p-10 flex flex-col gap-4 min-h-[534px]"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={VP}
-                transition={{ ...transition, delay: i * 0.1 }}
-              >
-                <p
-                  className="text-[14px] uppercase tracking-[2.4px] font-sans"
-                  style={{ color: "#650c0e" }}
-                >
-                  {phase}
-                </p>
-                <h3
-                  className="text-[30px] font-normal text-[#0a0402]"
-                  style={{ fontFamily: "var(--font-noto-serif)" }}
-                >
-                  {title}
-                </h3>
-                <p className="text-[16px] text-[#0a0402] leading-[1.7] font-sans flex-1">{body}</p>
-                {list && (
-                  <ul className="flex flex-col gap-1 font-sans text-[16px] text-[#0a0402] mt-2">
-                    {list.map((item) => (
-                      <li key={item} className="py-2 border-b border-black/10">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                <div className="mt-auto overflow-hidden rounded-[10px]">
-                  <img src={image} alt={imageAlt} className="w-full object-cover" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Phase 03 */}
+          {/* Phase stepper */}
           <motion.div
-            className="bg-white border border-black/10 rounded-[5px] p-10 flex flex-col items-center text-center gap-6"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
-            transition={transition}
+            className="flex items-start justify-center mb-16"
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}
+            transition={{ ...transition, delay: 0.1 }}
           >
-            <p
-              className="text-[14px] uppercase tracking-[2.4px] font-sans"
-              style={{ color: "#650c0e" }}
-            >
-              Phase 03
-            </p>
-            <h3
-              className="text-[30px] font-normal text-[#0a0402]"
-              style={{ fontFamily: "var(--font-noto-serif)" }}
-            >
-              The Stress Test
-            </h3>
-            <p className="text-[16px] text-[#0a0402] leading-[1.7] font-sans max-w-[1104px]">
-              A SixDevs product never leaves the lab without a trial by fire. We subject the system
-              to simulated chaos—network partitioning, massive load spikes, and adversarial
-              attacks—to ensure its signature remains unbroken.
-            </p>
-            <div className="max-w-[614px] w-full overflow-hidden rounded-[10px]">
-              <img src={PHASE03_IMAGE} alt="The Stress Test" className="w-full object-cover" />
+            {PHASES.map((phase, i) => (
+              <div key={phase.number} className="flex items-start">
+                <button
+                  onClick={() => setActivePhase(i)}
+                  className="flex flex-col items-center gap-4 w-[140px] md:w-[200px]"
+                >
+                  <div
+                    className="w-[83px] h-[83px] rounded-full flex items-center justify-center transition-colors"
+                    style={{ background: i === activePhase ? "rgba(101,12,14,0.08)" : "rgba(101,12,14,0.05)" }}
+                  >
+                    <span
+                      className="text-[22px] md:text-[25px] font-normal transition-colors"
+                      style={{
+                        fontFamily: "var(--font-poppins)",
+                        color: i === activePhase ? "#650c0e" : "rgba(0,0,0,0.3)",
+                        letterSpacing: "0.13em",
+                      }}
+                    >
+                      {phase.number}
+                    </span>
+                  </div>
+                  <span
+                    className="text-[14px] md:text-[16px] font-normal text-center leading-tight transition-colors"
+                    style={{
+                      fontFamily: "var(--font-noto-serif)",
+                      color: i === activePhase ? "#640c0d" : "#0a0402",
+                    }}
+                  >
+                    {phase.title}
+                  </span>
+                </button>
+
+                {i < PHASES.length - 1 && (
+                  <div className="flex-1 mt-[41px] mx-1">
+                    <div
+                      className="h-[2px] w-full"
+                      style={{ background: "rgba(101,12,14,0.3)" }}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Phase illustration */}
+          <motion.div
+            className="flex justify-center mb-10"
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}
+            transition={{ ...transition, delay: 0.15 }}
+          >
+            <div className="relative w-full max-w-[591px]" style={{ aspectRatio: "590.89 / 397.09" }}>
+              {/* Glow left */}
+              <div className="absolute rounded-full pointer-events-none"
+                style={{ width: "23.9%", height: "35.6%", left: "0%", top: "17.9%", background: "#7D1113", opacity: 0.4, filter: "blur(140px)" }}
+              />
+              {/* Glow right */}
+              <div className="absolute rounded-full pointer-events-none"
+                style={{ width: "23.9%", height: "35.6%", left: "76.1%", top: "45.7%", background: "#7D1113", opacity: 0.4, filter: "blur(140px)" }}
+              />
+              {/* Rect 54 — smaller card, peeks from top behind larger */}
+              <div className="absolute bg-white"
+                style={{ left: "14.3%", top: "0%", width: "70.8%", height: "75.2%", borderRadius: 37, boxShadow: "0px 4px 114px 10px rgba(0,0,0,0.03)" }}
+              />
+              {/* Rect 53 — larger front card, covers most of smaller */}
+              <div className="absolute bg-white"
+                style={{ left: "4.2%", top: "7%", width: "91.1%", height: "93%", borderRadius: 37, boxShadow: "0px 4px 114px 10px rgba(0,0,0,0.03)" }}
+              />
+              <img
+                src={METHODOLOGY_IMAGE}
+                alt="Methodology illustration"
+                className="absolute object-contain"
+                style={{ left: "17.8%", top: "15.1%", width: "64.4%", height: "76.9%" }}
+              />
             </div>
           </motion.div>
 
-          {/* Integrity + Expertise */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+          {/* Phase description */}
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={activePhase}
+              className="text-[16px] text-[#0a0402] leading-[1.8] font-sans max-w-[944px] mx-auto text-center"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+            >
+              {PHASES[activePhase].body}
+            </motion.p>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* About A Project */}
+      <section className="py-20" style={{ background: "#EEEEEE" }}>
+        <div className="max-w-[1320px] mx-auto px-6">
+          <motion.h2
+            className="text-[40px] md:text-[55px] font-normal text-[#111111] text-center mb-12"
+            style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "1.05" }}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP} transition={transition}
+          >
+            About A Project
+          </motion.h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {[
               {
                 title: "Structural Integrity",
                 body: "We adhere to the 'no-line' rule of physical architecture. Our digital structures are defined by tonal shifts and calculated negative space, echoing the precision of high-end blueprints.",
                 image: INTEGRITY_IMAGE,
-                imageAlt: "Structural Integrity",
               },
               {
                 title: "Expertise Stack",
                 body: "From Distributed Systems to Kernel Optimization, each founder brings a specific technical signature that ensures no part of the architecture is left to chance.",
                 image: EXPERTISE_IMAGE,
-                imageAlt: "Expertise Stack",
               },
-            ].map(({ title, body, image, imageAlt }, i) => (
+            ].map(({ title, body, image }, i) => (
               <motion.div
                 key={title}
-                className="bg-white border border-black/10 rounded-[5px] p-10 flex flex-col gap-4 min-h-[534px]"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={VP}
+                className="bg-white border border-black/10 rounded-[5px] overflow-hidden flex flex-col"
+                variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}
                 transition={{ ...transition, delay: i * 0.1 }}
               >
-                <h3
-                  className="text-[30px] font-normal text-[#0a0402]"
-                  style={{ fontFamily: "var(--font-noto-serif)" }}
-                >
-                  {title}
-                </h3>
-                <p className="text-[16px] text-[#0a0402] leading-[1.7] font-sans">{body}</p>
-                <div className="mt-auto overflow-hidden rounded-[10px]">
-                  <img src={image} alt={imageAlt} className="w-full object-cover" />
+                <div className="px-6 pt-6">
+                  <img src={image} alt={title} className="w-full h-[295px] object-cover rounded-[5px]" />
+                </div>
+                <div className="pl-[45px] pr-10 pt-11 pb-14 flex flex-col gap-[21px]">
+                  <h3
+                    className="text-[30px] font-normal text-[#111111]"
+                    style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "37px" }}
+                  >
+                    {title}
+                  </h3>
+                  <p
+                    className="text-[16px] text-[#111111]"
+                    style={{ fontFamily: "var(--font-poppins)", lineHeight: "27px" }}
+                  >{body}</p>
                 </div>
               </motion.div>
             ))}
@@ -358,11 +350,7 @@ export default function ApproachPage() {
 
           <motion.div
             className="flex justify-center mt-12"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
-            transition={transition}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP} transition={transition}
           >
             <Link
               to="/contact"
@@ -376,8 +364,6 @@ export default function ApproachPage() {
           </motion.div>
         </div>
       </section>
-
-
     </PageLayout>
   );
 }

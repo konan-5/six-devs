@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
@@ -12,6 +11,7 @@ import CategoryCyberSovereigntyIcon from "@/components/svg/CategoryCyberSovereig
 const ARTICLE_MAIN = "/assets/insights-article-main.png";
 const ARTICLE_1 = "/assets/insights-article-1.png";
 const ARTICLE_2 = "/assets/insights-article-2.png";
+const ARTICLE_3 = "/assets/insights-article-3.png";
 
 const CATEGORIES = [
   {
@@ -20,14 +20,14 @@ const CATEGORIES = [
     Icon: CategoryModernProgrammingIcon,
   },
   {
-    label: "Agentic AI",
-    description: "Developing autonomous reasoning loops for enterprise.",
-    Icon: CategoryAgenticAIIcon,
-  },
-  {
     label: "Web3 Architecture",
     description: "The reality of zero-knowledge proofs and scaling.",
     Icon: CategoryWeb3ArchitectureIcon,
+  },
+  {
+    label: "Agentic AI",
+    description: "Developing autonomous reasoning loops for enterprise.",
+    Icon: CategoryAgenticAIIcon,
   },
   {
     label: "Cyber-Sovereignty",
@@ -40,16 +40,17 @@ const ARTICLES = [
   {
     tag: "Case Study 04",
     title: "LLM-Native Development Workflows",
-    description:
-      "How SixDevs leverages specialized autonomous agents to accelerate legacy codebase migrations by 400%.",
     image: ARTICLE_1,
   },
   {
     tag: "Engineering Pattern",
     title: "Rust vs C++: High Performance Systems",
-    description:
-      "The economic argument for memory safety in mission-critical sovereign financial systems.",
     image: ARTICLE_2,
+  },
+  {
+    tag: "Decentralization",
+    title: "The Sovereign Stack: Engineering Beyond Cloud Dependencies",
+    image: ARTICLE_3,
   },
 ];
 
@@ -61,7 +62,7 @@ export default function InsightsPage() {
   return (
     <PageLayout newsletterVariant="dispatch">
       {/* Header */}
-      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-[117px]">
+      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-20">
         <video
           autoPlay
           loop
@@ -75,14 +76,7 @@ export default function InsightsPage() {
         </video>
         <div
           className="absolute rounded-full pointer-events-none"
-          style={{
-            width: 230,
-            height: 230,
-            top: -85,
-            left: -39,
-            background: "#7D1113",
-            filter: "blur(175px)",
-          }}
+          style={{ width: 230, height: 230, top: -85, left: -39, background: "#7D1113", filter: "blur(175px)" }}
           aria-hidden="true"
         />
         <div className="max-w-[1320px] mx-auto px-6 flex flex-col items-center text-center pt-10 pb-16 gap-6">
@@ -123,40 +117,42 @@ export default function InsightsPage() {
       </section>
 
       {/* Featured Article */}
-      <section className="bg-[#fdfdfd] pt-[108px] pb-[91px]">
+      <section className="bg-[#fdfdfd] pt-[72px] pb-[91px]">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-            {/* Main featured */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] items-stretch">
+            {/* Main featured — image bg with overlay */}
             <motion.div
-              className="flex flex-col"
+              className="relative rounded-[5px] overflow-hidden min-h-[500px] flex flex-col"
               variants={slideLeft}
               initial="hidden"
               whileInView="visible"
               viewport={VP}
               transition={transition}
             >
-              <div className="bg-[#10121c] rounded-[5px] overflow-hidden h-[378px]">
-                <img
-                  src={ARTICLE_MAIN}
-                  alt="The Sovereign Stack"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex flex-col gap-4 pt-10">
+              <img
+                src={ARTICLE_MAIN}
+                alt="The Sovereign Stack"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(180deg, rgba(6,10,16,0) 20%, rgba(6,10,16,0.95) 100%)" }}
+              />
+              <div className="relative z-10 flex flex-col gap-5 justify-end flex-1 p-8">
                 <p
-                  className="text-[18px] uppercase font-sans"
-                  style={{ color: "#650c0e", letterSpacing: "0.13em", lineHeight: "13px" }}
+                  className="text-[13px] uppercase font-sans text-white/60"
+                  style={{ letterSpacing: "0.13em" }}
                 >
                   Decentralization / 12 Min Read
                 </p>
                 <h2
-                  className="text-[30px] font-normal text-[#0a0402]"
+                  className="text-[28px] md:text-[30px] font-normal text-white"
                   style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "39px" }}
                 >
                   The Sovereign Stack: Engineering Beyond Cloud Dependencies
                 </h2>
                 <p
-                  className="text-[16px] text-[#0a0402]"
+                  className="text-[15px] text-white/70"
                   style={{ fontFamily: "var(--font-poppins)", lineHeight: "27px" }}
                 >
                   A deep dive into building infrastructure that survives the coming era of platform
@@ -165,11 +161,11 @@ export default function InsightsPage() {
                 </p>
                 <Link
                   to="#"
-                  className="inline-flex items-center gap-4 self-start bg-[#650c0e] rounded-full pl-6 pr-1.5 h-[58px] text-[14px] font-medium uppercase tracking-[0.04em] text-white hover:bg-[#7a0f12] transition-colors font-sans mt-2"
+                  className="inline-flex items-center gap-4 self-start bg-[#650c0e] rounded-full pl-6 pr-1.5 h-[52px] text-[13px] font-medium uppercase tracking-[0.04em] text-white hover:bg-[#7a0f12] transition-colors font-sans mt-2"
                 >
                   Read Manuscript
-                  <span className="flex items-center justify-center bg-white rounded-full w-[46px] h-[46px] shrink-0">
-                    <ArrowRight className="w-5 h-5 text-[#650c0e]" />
+                  <span className="flex items-center justify-center bg-white rounded-full w-[40px] h-[40px] shrink-0">
+                    <ArrowRight className="w-4 h-4 text-[#650c0e]" />
                   </span>
                 </Link>
               </div>
@@ -177,7 +173,7 @@ export default function InsightsPage() {
 
             {/* Side articles */}
             <motion.div
-              className="flex flex-col gap-[30px]"
+              className="flex flex-col gap-[22px]"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
@@ -187,40 +183,36 @@ export default function InsightsPage() {
               {ARTICLES.map((article) => (
                 <div
                   key={article.title}
-                  className="bg-white border border-black/10 rounded-[5px] flex flex-col sm:flex-row overflow-hidden"
-                  style={{ minHeight: "341px" }}
+                  className="flex items-stretch border border-black/10 rounded-[5px] overflow-hidden bg-white flex-1"
                 >
-                  <div className="sm:w-[206px] shrink-0 overflow-hidden bg-[#10121c]">
+                  <div className="w-[120px] shrink-0">
                     <img
                       src={article.image}
                       alt={article.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="flex flex-col gap-4 p-6 flex-1">
+                  <div className="flex flex-col gap-3 p-5 flex-1 justify-center">
                     <p
-                      className="text-[18px] uppercase font-sans"
-                      style={{ color: "#650c0e", letterSpacing: "0.13em", lineHeight: "13px" }}
+                      className="text-[12px] uppercase font-sans text-[#650c0e]"
+                      style={{ letterSpacing: "0.13em" }}
                     >
                       {article.tag}
                     </p>
                     <h3
-                      className="text-[30px] font-normal text-[#0a0402]"
-                      style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "38px" }}
+                      className="text-[20px] md:text-[22px] font-normal text-[#0a0402]"
+                      style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "1.3" }}
                     >
                       {article.title}
                     </h3>
-                    <p
-                      className="text-[16px] text-[#0a0402]"
-                      style={{ fontFamily: "var(--font-poppins)", lineHeight: "27px" }}
-                    >
-                      {article.description}
-                    </p>
+                  </div>
+                  <div className="flex items-center pr-5 shrink-0">
                     <Link
                       to="#"
-                      className="mt-auto self-start w-[42px] h-[42px] rounded-full bg-[#650c0e] flex items-center justify-center hover:bg-[#7a0f12] transition-colors shrink-0"
+                      aria-label={`Read ${article.title}`}
+                      className="w-[42px] h-[42px] rounded-full border border-black/20 flex items-center justify-center hover:bg-[#650c0e] hover:border-[#650c0e] transition-colors group shrink-0"
                     >
-                      <ArrowRight className="w-4 h-4 text-white" />
+                      <ArrowRight className="w-4 h-4 text-[#650c0e] group-hover:text-white transition-colors" />
                     </Link>
                   </div>
                 </div>
@@ -231,42 +223,38 @@ export default function InsightsPage() {
       </section>
 
       {/* Categories */}
-      <section className="py-[119px]" style={{ background: "#f4f4f4" }}>
+      <section className="py-[72px] bg-white">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col sm:flex-row items-start gap-[52px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {CATEGORIES.map(({ label, description, Icon }, index) => (
-              <React.Fragment key={label}>
-                <motion.div
-                  className="flex flex-col gap-[23px] w-full sm:w-[249px] shrink-0"
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={VP}
-                  transition={{ ...transition, delay: index * 0.1 }}
-                >
+              <motion.div
+                key={label}
+                className="flex items-center gap-8 px-[60px] py-8 border border-[#D5D5D5] rounded-[10px] bg-white"
+                style={{ boxShadow: "0px 4px 44px rgba(0,0,0,0.04)" }}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VP}
+                transition={{ ...transition, delay: index * 0.1 }}
+              >
+                <div className="shrink-0">
                   <Icon />
-                  <div className="flex flex-col gap-[13px]">
-                    <h3
-                      className="text-[30px] font-normal text-[#0a0402]"
-                      style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "33px" }}
-                    >
-                      {label}
-                    </h3>
-                    <p
-                      className="text-[16px] text-[#0a0402]"
-                      style={{ fontFamily: "var(--font-poppins)", lineHeight: "27px" }}
-                    >
-                      {description}
-                    </p>
-                  </div>
-                </motion.div>
-                {index < CATEGORIES.length - 1 && (
-                  <div
-                    className="hidden sm:block w-px h-[245px] shrink-0 self-center"
-                    style={{ background: "rgba(10, 4, 2, 0.15)" }}
-                  />
-                )}
-              </React.Fragment>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <h3
+                    className="text-[30px] font-normal text-[#650c0e]"
+                    style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "33px" }}
+                  >
+                    {label}
+                  </h3>
+                  <p
+                    className="text-[16px] text-[#0a0402]"
+                    style={{ fontFamily: "var(--font-poppins)", lineHeight: "25px" }}
+                  >
+                    {description}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
