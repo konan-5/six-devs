@@ -1,0 +1,132 @@
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router";
+import { motion } from "motion/react";
+import { useMotionConfig } from "@/hooks/use-motion-config";
+
+const HERO_IMAGE = "/assets/hero_vid.gif";
+const ICON_WEB3 = "/assets/icon-web3.svg";
+const ICON_WEB2 = "/assets/icon-web2.svg";
+const ICON_AI = "/assets/icon-ai.svg";
+
+const EXPERTISE_ITEMS = [
+  { icon: ICON_WEB3, label: "High-Scale Web2 Systems" },
+  { icon: ICON_WEB2, label: "Web3 Infrastructure & DeFi" },
+  { icon: ICON_AI, label: "Applied AI & Neural Patterns" },
+];
+
+export default function HeroSection() {
+  const { fadeUp, fadeIn, transition, slowTransition } = useMotionConfig();
+
+  return (
+    <section className="relative min-h-screen lg:min-h-0 lg:h-[900px] bg-[#060a10] overflow-hidden flex flex-col">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute top-0 left-0 w-[230px] h-[230px] rounded-full opacity-30"
+          style={{
+            background: "radial-gradient(circle, rgba(101,12,14,0.6) 0%, transparent 70%)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 flex-1 flex flex-col">
+        <div className="max-w-[1320px] mx-auto w-full px-6 flex-1 flex flex-col">
+          <div className="flex flex-col md:flex-row items-start gap-8 pt-10 md:pt-16">
+            <div className="flex-1 flex flex-col gap-6 md:gap-8 max-w-[620px]">
+              <motion.p
+                className="text-[13px] md:text-[16px] font-light uppercase tracking-[3px] text-[#fbe9a2]"
+                style={{ fontFamily: "var(--font-poppins)" }}
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                transition={{ ...transition, delay: 0 }}
+              >
+                Founder-Led Engineering Delivery
+              </motion.p>
+
+              <motion.h1
+                className="text-[52px] md:text-[80px] lg:text-[92px] font-normal leading-[1] text-white"
+                style={{ fontFamily: "var(--font-noto-serif)" }}
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                transition={{ ...transition, delay: 0.1 }}
+              >
+                Architectural
+                <br />
+                Rigor.
+              </motion.h1>
+
+              <motion.div
+                className="flex gap-4"
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                transition={{ ...transition, delay: 0.2 }}
+              >
+                <div className="w-[3px] bg-[#650c0e] shrink-0 rounded-full self-stretch" />
+                <p className="text-[14px] md:text-[16px] text-white/80 leading-[2] font-sans">
+                  We bridge the gap between visionary ambition and technical
+                  reality. A specialized collective delivering high-stakes
+                  solutions across the digital frontier.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                transition={{ ...transition, delay: 0.3 }}
+              >
+                <Link
+                  to="/expertise"
+                  className="inline-flex items-center gap-4 self-start bg-[#650c0e] rounded-full pl-6 pr-1.5 h-[52px] md:h-[58px] text-[13px] md:text-[14px] font-medium uppercase tracking-[0.64px] text-white hover:bg-[#7a0f12] transition-colors font-sans mt-2"
+                >
+                  Explore Expertise
+                  <span className="flex items-center justify-center bg-white rounded-full w-[40px] h-[40px] md:w-[46px] md:h-[46px] shrink-0">
+                    <ArrowRight className="w-5 h-5 text-[#060a10]" />
+                  </span>
+                </Link>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="relative w-full md:w-[520px] lg:w-[620px] shrink-0 mt-4 md:mt-0 md:self-center"
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ ...slowTransition, delay: 0.2 }}
+            >
+              <img
+                src={HERO_IMAGE}
+                alt="Architectural 3D render"
+                className="object-contain w-full h-full"
+              />
+            </motion.div>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-6 md:gap-16 py-8 md:py-10 mt-12 md:mt-16">
+            {EXPERTISE_ITEMS.map((item, i) => (
+              <motion.div
+                key={item.label}
+                className="flex items-center gap-4"
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                transition={{ ...transition, delay: 0.45 + i * 0.1 }}
+              >
+                <img
+                  src={item.icon}
+                  alt=""
+                  className="object-contain w-[50px] h-[50px] md:w-[62px] md:h-[62px] shrink-0"
+                />
+                <span className="text-[14px] md:text-[16px] text-white font-sans">
+                  {item.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
