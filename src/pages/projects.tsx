@@ -77,7 +77,7 @@ export default function ProjectsPage() {
             manuscript, balancing structural integrity with technical elegance.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-12 mt-4 pb-4 w-full">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-6 sm:gap-10 md:gap-12 mt-4 pb-4 w-full">
             {[
               { label: "Fintech Core", Icon: FintechCoreIcon },
               { label: "Distributed Systems", Icon: DistributedSystemsIcon },
@@ -204,7 +204,7 @@ export default function ProjectsPage() {
       {/* Case Study 02 */}
       <section className="bg-[#111] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-[151px]">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-[151px]">
             <motion.div
               className="w-full lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
               variants={slideLeft}

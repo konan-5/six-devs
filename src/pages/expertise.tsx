@@ -81,7 +81,7 @@ export default function ExpertisePage() {
             gap between legacy reliability and frontier innovation across Web2, Web3, and AI.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-12 mt-4 pb-4 w-full">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-6 sm:gap-10 md:gap-12 mt-4 pb-4 w-full">
             {[
               { label: "Web2 Product Engineering", Icon: Web2Icon },
               { label: "Web3 & Smart Contracts", Icon: Web3Icon },
@@ -190,7 +190,7 @@ export default function ExpertisePage() {
       {/* Web3 Protocols */}
       <section className="bg-[#111] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
             <motion.div
               className="w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
               variants={slideLeft}

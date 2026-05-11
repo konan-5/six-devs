@@ -211,7 +211,7 @@ export default function ApproachPage() {
               <div key={phase.number} className="flex items-start">
                 <button
                   onClick={() => setActivePhase(i)}
-                  className="flex flex-col items-center gap-4 w-[140px] md:w-[200px]"
+                  className="flex flex-col items-center gap-4 w-[90px] sm:w-[140px] md:w-[200px]"
                 >
                   <div
                     className="w-[83px] h-[83px] rounded-full flex items-center justify-center transition-colors"
@@ -332,7 +332,7 @@ export default function ApproachPage() {
                 <div className="px-6 pt-6">
                   <img src={image} alt={title} className="w-full h-[295px] object-cover rounded-[5px]" />
                 </div>
-                <div className="pl-[45px] pr-10 pt-11 pb-14 flex flex-col gap-[21px]">
+                <div className="p-6 sm:pl-[45px] sm:pr-10 sm:pt-11 sm:pb-14 flex flex-col gap-[21px]">
                   <h3
                     className="text-[30px] font-normal text-[#111111]"
                     style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "37px" }}

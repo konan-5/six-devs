@@ -229,7 +229,7 @@ export default function InsightsPage() {
             {CATEGORIES.map(({ label, description, Icon }, index) => (
               <motion.div
                 key={label}
-                className="flex items-center gap-8 px-[60px] py-8 border border-[#D5D5D5] rounded-[10px] bg-white"
+                className="flex items-center gap-5 md:gap-8 px-6 md:px-[60px] py-8 border border-[#D5D5D5] rounded-[10px] bg-white"
                 style={{ boxShadow: "0px 4px 44px rgba(0,0,0,0.04)" }}
                 variants={fadeUp}
                 initial="hidden"

@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const LOGO_ASSET = "/assets/logo-mark.png";
-const CTA_IMAGE = "/assets/section-tech-domains.png";
+const CTA_IMAGE = "/assets/footer-cta-image.png";
 
 type NewsletterVariant = "default" | "cta" | "dispatch";
 
@@ -63,10 +63,10 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
           />
           <div className="relative z-10 w-full">
             {newsletterVariant === "cta" && (
-              <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                <div className="flex flex-col gap-6 flex-1">
+              <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
+                <div className="relative z-10 flex flex-col gap-6 max-w-[560px]">
                   <h2
-                    className="text-[28px] md:text-[40px] lg:text-[48px] font-normal text-white leading-tight max-w-[560px]"
+                    className="text-[28px] md:text-[40px] lg:text-[48px] font-normal text-white leading-tight"
                     style={{ fontFamily: "var(--font-noto-serif)" }}
                   >
                     Have a technical challenge that demands precision?
@@ -84,11 +84,20 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                     </span>
                   </Link>
                 </div>
-                <div className="w-full lg:w-[420px] shrink-0 aspect-[4/3] rounded-[16px] overflow-hidden">
-                  <img
-                    src={CTA_IMAGE}
-                    alt="Technical infrastructure"
-                    className="w-full h-full object-cover mix-blend-luminosity"
+
+                {/* Mobile: inline image */}
+                <div className="lg:hidden w-full mt-2">
+                  <img src={CTA_IMAGE} alt="" className="w-full h-auto object-contain" aria-hidden="true" />
+                </div>
+
+                {/* Desktop: absolute image with edge gradient */}
+                <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[130%] pointer-events-none" aria-hidden="true">
+                  <img src={CTA_IMAGE} alt="" className="h-full w-auto" />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: "radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(75,9,9,0.88) 72%)",
+                    }}
                   />
                 </div>
               </div>

@@ -90,7 +90,7 @@ export default function HeroSection() {
             </div>
 
             <motion.div
-              className="relative w-full md:w-[520px] lg:w-[620px] shrink-0 mt-4 md:mt-0 md:self-center"
+              className="hidden md:block relative w-full md:w-[520px] lg:w-[620px] shrink-0 mt-4 md:mt-0 md:self-center"
               variants={fadeIn}
               initial="hidden"
               animate="visible"
@@ -108,7 +108,7 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-6 md:gap-16 py-8 mt-auto">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-6 sm:gap-10 md:gap-16 py-8 mt-auto">
             {EXPERTISE_ITEMS.map((item, i) => (
               <motion.div
                 key={item.label}
