@@ -141,11 +141,10 @@ export default function ApproachPage() {
                   const isFeature = i === 3;
                   const isLuminosity = [0, 2, 4, 5].includes(i);
                   return (
-                    <div key={i} className="relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden">
+                    <div key={i} className="group relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden">
                       <img
                         src={member.image} alt={member.name}
-                        className="w-full h-full object-cover"
-                        style={isLuminosity ? { mixBlendMode: "luminosity" } : undefined}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                       />
                       <div
                         className="absolute inset-x-0 bottom-0 rounded-b-[10px]"
