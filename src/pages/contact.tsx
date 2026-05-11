@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useMotionConfig } from "@/hooks/use-motion-config";
 import PageLayout from "@/components/layout/page-layout";
+import ResponseTimeIcon from "@/components/svg/ResponseTimeIcon";
+import PrivacyProtocolIcon from "@/components/svg/PrivacyProtocolIcon";
 
 const PROJECT_TYPES = [
   "Web2 Product Engineering",
@@ -92,25 +94,30 @@ export default function ContactPage() {
           {/* Info banners */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
             {[
-              { label: "Response Time", value: "Estimated response time: 24-48 hours" },
-              { label: "Privacy Protocol", value: "Secure communication guaranteed." },
-            ].map(({ label, value }, i) => (
+              { label: "Response Time", value: "Estimated response time: 24-48 hours", Icon: ResponseTimeIcon },
+              { label: "Privacy Protocol", value: "Secure communication guaranteed.", Icon: PrivacyProtocolIcon },
+            ].map(({ label, value, Icon }, i) => (
               <motion.div
                 key={label}
-                className="bg-[rgba(101,12,14,0.05)] rounded-[5px] px-8 py-6"
+                className="bg-[rgba(101,12,14,0.05)] rounded-[5px] px-6 py-6 flex items-center gap-5"
                 variants={slideLeft}
                 initial="hidden"
                 whileInView="visible"
                 viewport={VP}
                 transition={{ ...transition, delay: i * 0.08 }}
               >
-                <p
-                  className="text-[13px] uppercase tracking-[2.4px] font-sans mb-2"
-                  style={{ color: "#650c0e" }}
-                >
-                  {label}
-                </p>
-                <p className="text-[16px] text-[#0a0402] font-sans">{value}</p>
+                <div className="shrink-0">
+                  <Icon />
+                </div>
+                <div>
+                  <p
+                    className="text-[13px] uppercase tracking-[2.4px] font-sans mb-1"
+                    style={{ color: "#650c0e" }}
+                  >
+                    {label}
+                  </p>
+                  <p className="text-[16px] text-[#0a0402] font-sans">{value}</p>
+                </div>
               </motion.div>
             ))}
           </div>

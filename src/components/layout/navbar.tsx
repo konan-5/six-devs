@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: "Projects", href: "/projects" },
   { label: "Approach", href: "/approach" },
   { label: "Insights", href: "/insights" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const LOGO_ASSET = "/assets/logo-mark.png";

@@ -68,7 +68,7 @@ export default function ExpertisePage() {
             animate="visible"
             transition={{ ...transition, delay: 0.1 }}
           >
-            Architecting the Sovereign Web.
+            Architecting the <br /> Sovereign Web.
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] max-w-[890px] font-sans"
