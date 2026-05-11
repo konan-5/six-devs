@@ -22,7 +22,7 @@ export default function ContactPage() {
   return (
     <PageLayout newsletterVariant="dispatch">
       {/* Header */}
-      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-[117px]">
+      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-20">
         <video
           autoPlay
           loop

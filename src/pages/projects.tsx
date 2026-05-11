@@ -21,7 +21,7 @@ export default function ProjectsPage() {
 
   return (
     <PageLayout newsletterVariant="cta">
-      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-[117px]">
+      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-20">
         <video
           autoPlay
           loop
@@ -241,7 +241,7 @@ export default function ProjectsPage() {
                 Deep Dive: The Result
               </h2>
 
-              <div className="flex items-start gap-12 border-t border-white/10 pt-8">
+              <div className="flex items-start gap-12">
                 <span
                   className="text-[40px] font-normal text-white shrink-0"
                   style={{ fontFamily: "var(--font-noto-serif)" }}
@@ -258,7 +258,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-12 border-t border-white/10 pt-8">
+              <div className="flex items-start gap-12">
                 <span
                   className="text-[40px] font-normal text-white shrink-0"
                   style={{ fontFamily: "var(--font-noto-serif)" }}
