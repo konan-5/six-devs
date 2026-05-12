@@ -18,7 +18,7 @@ export default function HeroSection() {
   const { fadeUp, fadeIn, transition, slowTransition } = useMotionConfig();
 
   return (
-    <section className="relative min-h-screen lg:min-h-0 lg:h-[800px] bg-[#060a10] overflow-hidden flex flex-col pt-10">
+    <section className="relative min-h-screen md:min-h-[680px] lg:min-h-0 lg:h-[800px] bg-[#060a10] overflow-hidden flex flex-col pt-10">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
           className="absolute top-0 left-0 w-[230px] h-[230px] rounded-full opacity-30"

@@ -119,7 +119,7 @@ export default function InsightsPage() {
       {/* Featured Article */}
       <section className="bg-[#fdfdfd] pt-[72px] pb-[91px]">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] items-stretch">
             {/* Main featured — image bg with overlay */}
             <motion.div
               className="relative rounded-[5px] overflow-hidden min-h-[500px] flex flex-col"

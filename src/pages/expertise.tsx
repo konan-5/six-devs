@@ -116,7 +116,7 @@ export default function ExpertisePage() {
       {/* AI Integrations */}
       <section className="bg-[#fdfdfd] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-[200px]">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-10 lg:gap-[200px]">
             <motion.div
               className="flex flex-col gap-8 flex-1 max-w-[544px]"
               variants={slideLeft}
@@ -174,7 +174,7 @@ export default function ExpertisePage() {
               </Accordion>
             </motion.div>
             <motion.div
-              className="w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
+              className="w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
@@ -190,9 +190,9 @@ export default function ExpertisePage() {
       {/* Web3 Protocols */}
       <section className="bg-[#111] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-10 lg:gap-12">
             <motion.div
-              className="w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
+              className="w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
               variants={slideLeft}
               initial="hidden"
               whileInView="visible"
@@ -260,7 +260,7 @@ export default function ExpertisePage() {
       {/* Web2 Product Engineering */}
       <section className="bg-[#fdfdfd] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-[317px]">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-10 lg:gap-[317px]">
             <motion.div
               className="flex flex-col gap-8 flex-1 max-w-[421px]"
               variants={slideLeft}
@@ -295,7 +295,7 @@ export default function ExpertisePage() {
               </ul>
             </motion.div>
             <motion.div
-              className="w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
+              className="w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"

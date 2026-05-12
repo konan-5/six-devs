@@ -50,7 +50,7 @@ export default function CardsSection() {
   return (
     <section className="bg-white py-16 md:pt-32">
       <div className="max-w-[1320px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4">
           {CARDS.map((card, i) => (
             <motion.div
               key={card.id}

@@ -112,7 +112,7 @@ export default function ProjectsPage() {
       {/* Case Study 01 */}
       <section className="bg-[#fdfdfd] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+          <div className="flex flex-col md:flex-row items-start gap-12 md:gap-10 lg:gap-16">
             <motion.div
               className="flex flex-col gap-8 flex-1 max-w-[573px]"
               variants={slideLeft}
@@ -184,7 +184,7 @@ export default function ProjectsPage() {
             </motion.div>
 
             <motion.div
-              className="group w-full lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
+              className="group w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
@@ -204,9 +204,9 @@ export default function ProjectsPage() {
       {/* Case Study 02 */}
       <section className="bg-[#111] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-[151px]">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-10 lg:gap-[151px]">
             <motion.div
-              className="w-full lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
+              className="w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
               variants={slideLeft}
               initial="hidden"
               whileInView="visible"
@@ -347,7 +347,7 @@ export default function ProjectsPage() {
             </h2>
           </motion.div>
 
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-[219px]">
+          <div className="flex flex-col md:flex-row items-start gap-12 md:gap-10 lg:gap-[219px]">
             <motion.div
               className="flex flex-col gap-8 flex-1 max-w-[523px]"
               variants={slideLeft}
@@ -413,7 +413,7 @@ export default function ProjectsPage() {
             </motion.div>
 
             <motion.div
-              className="group w-full lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
+              className="group w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
