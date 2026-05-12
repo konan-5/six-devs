@@ -186,9 +186,9 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
         </div>
 
         {/* Footer links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 pt-16 pb-10 border-b border-white/10">
-          <div className="col-span-2 md:col-span-1 flex flex-col gap-3">
-            <Link to="/" className="flex items-center gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10 pt-14 md:pt-16 pb-7 md:pb-10 border-b border-white/10 text-center md:text-left justify-items-center md:justify-items-stretch">
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <Link to="/" className="flex items-center justify-center md:justify-start gap-3">
               <img
                 src={LOGO_ASSET}
                 alt="SixDevs logo mark"
@@ -208,7 +208,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center md:items-start gap-3 pt-4 md:pt-0">
             <p className="text-[16px] font-normal text-white mb-1" style={{ fontFamily: "var(--font-noto-serif)" }}>
               Practice
             </p>
@@ -220,7 +220,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
             </Link>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center md:items-start gap-3">
             <p className="text-[16px] font-normal text-white mb-1" style={{ fontFamily: "var(--font-noto-serif)" }}>
               Offices
             </p>
@@ -228,18 +228,18 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
             <span className="text-sm text-white/70">Archive</span>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center md:items-start gap-3 pt-4 md:pt-0">
             <p className="text-[16px] font-normal text-white mb-1" style={{ fontFamily: "var(--font-noto-serif)" }}>
               Status
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center md:justify-start gap-2">
               <span className="w-2 h-2 rounded-full bg-green-400 shrink-0" />
               <span className="text-sm text-white/70">Available for Q3 Projects</span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-6 pb-8 gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between pt-7 md:pt-6 pb-7 md:pb-8 gap-5 md:gap-4">
           <p className="text-sm text-white/40">© 2026 SixDevs.</p>
           <div className="flex items-center gap-4">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="opacity-40 hover:opacity-100 transition-opacity">
