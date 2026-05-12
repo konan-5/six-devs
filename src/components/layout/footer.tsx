@@ -63,8 +63,8 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
           />
           <div className="relative z-10 w-full">
             {newsletterVariant === "cta" && (
-              <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
-                <div className="relative z-10 flex flex-col gap-6 max-w-[560px]">
+              <div className="flex flex-col lg:flex-row lg:items-stretch gap-10 lg:gap-0">
+                <div className="relative z-10 flex flex-col gap-6 max-w-[560px] lg:py-0 shrink-0">
                   <h2
                     className="text-[28px] md:text-[40px] lg:text-[48px] font-normal text-white leading-tight"
                     style={{ fontFamily: "var(--font-noto-serif)" }}
@@ -85,18 +85,28 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                   </Link>
                 </div>
 
-                {/* Mobile: inline image */}
-                <div className="lg:hidden w-full mt-2">
-                  <img src={CTA_IMAGE} alt="" className="w-full h-auto object-contain" aria-hidden="true" />
+                {/* Mobile: flush left/right/bottom, mask top */}
+                <div className="lg:hidden -mx-10 md:-mx-16 -mb-14 md:-mb-20" aria-hidden="true">
+                  <img
+                    src={CTA_IMAGE}
+                    alt=""
+                    className="w-full h-auto object-cover"
+                    style={{
+                      maskImage: "linear-gradient(to bottom, transparent 0%, black 35%)",
+                      WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 35%)",
+                    }}
+                  />
                 </div>
 
-                {/* Desktop: absolute image with edge gradient */}
-                <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[130%] pointer-events-none" aria-hidden="true">
-                  <img src={CTA_IMAGE} alt="" className="h-full w-auto" />
-                  <div
-                    className="absolute inset-0"
+                {/* Desktop: flush right/top/bottom, mask left */}
+                <div className="hidden lg:block lg:flex-1 -mr-16 -my-20 self-stretch" aria-hidden="true">
+                  <img
+                    src={CTA_IMAGE}
+                    alt=""
+                    className="w-full h-full object-cover object-left"
                     style={{
-                      background: "radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(75,9,9,0.88) 72%)",
+                      maskImage: "linear-gradient(to right, transparent 0%, black 45%)",
+                      WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 45%)",
                     }}
                   />
                 </div>
