@@ -18,7 +18,7 @@ export default function Navbar() {
   const { pathname } = useLocation();
 
   return (
-    <header className="w-full bg-white border-b border-black/8 z-50">
+    <header className="sticky top-0 z-40 w-full bg-white border-b border-black/8">
       <nav className="mx-auto flex h-[80px] w-full max-w-[1320px] items-center justify-between px-6 lg:h-[117px]">
         <Link to="/" className="flex items-center gap-3 shrink-0">
           <img

@@ -64,7 +64,7 @@ export default function ProjectsPage() {
             animate="visible"
             transition={{ ...transition, delay: 0.1 }}
           >
-            Projects &amp; Artifacts.
+            Projects &amp; Artifacts
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] max-w-[691px] font-sans"
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
             transition={{ ...transition, delay: 0.2 }}
           >
             A curated selection of architectural engineering feats. We treat code as a high-stakes
-            manuscript, balancing structural integrity with technical elegance.
+            manuscript, balancing structural integrity with technical elegance
           </motion.p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-6 sm:gap-10 md:gap-12 mt-4 pb-4 w-full">

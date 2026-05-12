@@ -149,7 +149,7 @@ export default function ApproachPage() {
             variants={fadeUp} initial="hidden" animate="visible"
             transition={{ ...transition, delay: 0.1 }}
           >
-            Engineering is not a service it is a signature.
+            Engineering is not a service it is a signature
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] max-w-[890px] font-sans"
@@ -157,7 +157,7 @@ export default function ApproachPage() {
             transition={{ ...transition, delay: 0.2 }}
           >
             SixDevs was founded on the principle that code is structural integrity. We do not
-            "build features"—we architect sovereign systems designed for the next century of computing.
+            "build features"—we architect sovereign systems designed for the next century of computing
           </motion.p>
         </div>
       </section>

@@ -53,7 +53,7 @@ export default function HeroSection() {
               >
                 Architectural
                 <br />
-                Rigor.
+                Rigor
               </motion.h1>
 
               <motion.div
@@ -67,7 +67,7 @@ export default function HeroSection() {
                 <p className="text-[14px] md:text-[16px] text-white/80 leading-[2] font-sans">
                   We bridge the gap between visionary ambition and technical
                   reality. A specialized collective delivering high-stakes
-                  solutions across the digital frontier.
+                  solutions across the digital frontier
                 </p>
               </motion.div>
 

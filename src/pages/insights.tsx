@@ -100,7 +100,7 @@ export default function InsightsPage() {
           >
             Insights &amp;
             <br />
-            Architectural Thought.
+            Architectural Thought
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] max-w-[930px] font-sans"
@@ -111,7 +111,7 @@ export default function InsightsPage() {
           >
             Strategic engineering intelligence for the modern era. We explore the intersection of
             high-frequency AI integration, decentralized trust architectures, and the future of
-            sovereign codebases.
+            sovereign codebases
           </motion.p>
         </div>
       </section>

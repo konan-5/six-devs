@@ -67,7 +67,7 @@ export default function ContactPage() {
             animate="visible"
             transition={{ ...transition, delay: 0.1 }}
           >
-            Start the Conversation.
+            Start the Conversation
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] font-sans"
@@ -76,7 +76,7 @@ export default function ContactPage() {
             animate="visible"
             transition={{ ...transition, delay: 0.2 }}
           >
-            Direct access to our technical leadership. No intermediaries.
+            Direct access to our technical leadership. No intermediaries
           </motion.p>
         </div>
       </section>

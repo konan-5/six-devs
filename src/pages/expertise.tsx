@@ -68,7 +68,7 @@ export default function ExpertisePage() {
             animate="visible"
             transition={{ ...transition, delay: 0.1 }}
           >
-            Architecting the <br className="hidden md:block"/> Sovereign Web.
+            Architecting the <br className="hidden md:block"/> Sovereign Web
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] max-w-[890px] font-sans"
@@ -78,7 +78,7 @@ export default function ExpertisePage() {
             transition={{ ...transition, delay: 0.2 }}
           >
             We don't build software; we engineer digital equity. Our founder-led team bridges the
-            gap between legacy reliability and frontier innovation across Web2, Web3, and AI.
+            gap between legacy reliability and frontier innovation across Web2, Web3, and AI
           </motion.p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-6 sm:gap-10 md:gap-12 mt-4 pb-4 w-full">
@@ -160,7 +160,7 @@ export default function ExpertisePage() {
                   >
                     <AccordionTrigger className="py-5 text-[16px] text-[#060a10] font-sans font-normal hover:no-underline **:data-[slot=accordion-trigger-icon]:hidden">
                       <span className="flex-1 text-left">{item.title}</span>
-                      <div className="w-[43px] h-[43px] rounded-full bg-[#f0f0f0] flex items-center justify-center shrink-0 ml-4 transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-180">
+                      <div className="w-[43px] h-[43px] rounded-full bg-[#f0f0f0] flex items-center justify-center shrink-0 ml-4 transition-all duration-200 ease-out group-hover/accordion-trigger:bg-[#e7e7e7] group-hover/accordion-trigger:scale-[1.04] group-aria-expanded/accordion-trigger:rotate-180">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M6 9l6 6 6-6" />
                         </svg>
