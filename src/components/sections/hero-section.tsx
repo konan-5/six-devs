@@ -18,7 +18,7 @@ export default function HeroSection() {
   const { fadeUp, fadeIn, transition, slowTransition } = useMotionConfig();
 
   return (
-    <section className="relative min-h-screen md:min-h-[680px] lg:min-h-0 lg:h-[800px] bg-[#060a10] overflow-hidden flex flex-col pt-10">
+    <section className="relative bg-[#060a10] overflow-hidden flex flex-col pt-10 lg:h-[800px]">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
           className="absolute top-0 left-0 w-[230px] h-[230px] rounded-full opacity-30"
@@ -30,8 +30,8 @@ export default function HeroSection() {
 
       <div className="relative z-10 flex-1 flex flex-col">
         <div className="max-w-[1320px] mx-auto w-full px-6 flex-1 flex flex-col">
-          <div className="flex flex-col md:flex-row items-start gap-8 pt-10 md:pt-16">
-            <div className="flex-1 flex flex-col gap-6 md:gap-8 max-w-[620px]">
+          <div className="flex flex-col items-center gap-8 pt-10 text-center lg:flex-row lg:items-start lg:text-left lg:pt-16">
+            <div className="flex w-full max-w-[620px] flex-col items-center gap-6 md:gap-8 lg:items-start">
               <motion.p
                 className="text-[13px] md:text-[16px] font-light uppercase tracking-[3px] text-[#fbe9a2]"
                 style={{ fontFamily: "var(--font-poppins)" }}
@@ -57,13 +57,13 @@ export default function HeroSection() {
               </motion.h1>
 
               <motion.div
-                className="flex gap-4"
+                className="flex flex-col items-center gap-4 lg:flex-row lg:items-stretch"
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
                 transition={{ ...transition, delay: 0.2 }}
               >
-                <div className="w-[3px] bg-[#650c0e] shrink-0 rounded-full self-stretch" />
+                <div className="h-[3px] w-[84px] bg-[#650c0e] shrink-0 rounded-full lg:h-auto lg:w-[3px] lg:self-stretch" />
                 <p className="text-[14px] md:text-[16px] text-white/80 leading-[2] font-sans">
                   We bridge the gap between visionary ambition and technical
                   reality. A specialized collective delivering high-stakes
@@ -90,7 +90,7 @@ export default function HeroSection() {
             </div>
 
             <motion.div
-              className="hidden md:block relative w-full md:w-[520px] lg:w-[620px] shrink-0 mt-4 md:mt-0 md:self-center"
+              className="relative w-full max-w-[560px] lg:max-w-none lg:w-[620px] lg:shrink-0 lg:self-center"
               variants={fadeIn}
               initial="hidden"
               animate="visible"

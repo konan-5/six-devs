@@ -68,7 +68,7 @@ export default function ExpertisePage() {
             animate="visible"
             transition={{ ...transition, delay: 0.1 }}
           >
-            Architecting the <br /> Sovereign Web.
+            Architecting the <br className="hidden md:block"/> Sovereign Web.
           </motion.h1>
           <motion.p
             className="text-[15px] md:text-[16px] text-white leading-[34px] max-w-[890px] font-sans"
@@ -104,7 +104,7 @@ export default function ExpertisePage() {
                 >
                   <Icon />
                 </div>
-                <span className="text-[16px] text-white font-sans whitespace-nowrap">
+                <span className="text-[16px] text-white font-sans">
                   {label}
                 </span>
               </motion.div>
@@ -116,7 +116,7 @@ export default function ExpertisePage() {
       {/* AI Integrations */}
       <section className="bg-[#fdfdfd] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-10 lg:gap-[200px]">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-10 lg:gap-16 xl:gap-[120px]">
             <motion.div
               className="flex flex-col gap-8 flex-1 max-w-[544px]"
               variants={slideLeft}
@@ -260,7 +260,7 @@ export default function ExpertisePage() {
       {/* Web2 Product Engineering */}
       <section className="bg-[#fdfdfd] py-20">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-10 lg:gap-[317px]">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-10 lg:gap-16 xl:gap-[120px]">
             <motion.div
               className="flex flex-col gap-8 flex-1 max-w-[421px]"
               variants={slideLeft}

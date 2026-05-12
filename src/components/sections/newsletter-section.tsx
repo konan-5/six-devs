@@ -11,7 +11,7 @@ export default function NewsletterSection() {
     >
       <div className="max-w-[1320px] mx-auto px-6">
         <div
-          className="relative overflow-hidden rounded-[30px] px-10 md:px-16 py-14 md:py-20"
+          className="relative overflow-hidden rounded-[30px] px-6 py-14 sm:px-10 md:px-16 md:py-20"
           style={{
             background:
               "linear-gradient(74.03deg, #7B2222 -1.43%, #501B1B 21.16%, #501B1B 21.17%, #AC2626 65.86%, #4B0909 99.26%)",
@@ -45,7 +45,7 @@ export default function NewsletterSection() {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setEmail(e.target.value)
                 }
-                className="flex-1 bg-transparent border-0 text-white placeholder:text-white/40 text-[15px] font-sans rounded-full focus-visible:ring-0 focus-visible:ring-offset-0 h-[56px] px-6"
+                className="min-w-0 flex-1 bg-transparent border-0 text-white placeholder:text-white/40 text-[15px] font-sans rounded-full focus-visible:ring-0 focus-visible:ring-offset-0 h-[56px] px-4 sm:px-6"
               />
               <button
                 type="submit"

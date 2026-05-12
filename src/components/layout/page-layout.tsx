@@ -10,7 +10,7 @@ export default function PageLayout({ children, newsletterVariant }: PageLayoutPr
   return (
     <>
       <Navbar />
-      <main className="overflow-x-hidden">{children}</main>
+      <main className="overflow-x-clip">{children}</main>
       <Footer newsletterVariant={newsletterVariant} />
     </>
   );

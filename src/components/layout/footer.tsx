@@ -38,7 +38,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
       <div className="max-w-[1320px] mx-auto px-6 relative z-10">
         {/* Newsletter card */}
         <div
-          className="relative overflow-hidden rounded-[30px] px-10 md:px-16 py-14 md:py-20"
+          className="relative overflow-hidden rounded-[30px] px-6 py-14 sm:px-10 md:px-16 md:py-20"
           style={{
             background: "linear-gradient(74.03deg, #7B2222 -1.43%, #501B1B 21.16%, #501B1B 21.17%, #AC2626 65.86%, #4B0909 99.26%)",
           }}
@@ -64,7 +64,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
           <div className="relative z-10 w-full">
             {newsletterVariant === "cta" && (
               <div className="flex flex-col lg:flex-row lg:items-stretch gap-10 lg:gap-0">
-                <div className="relative z-10 flex flex-col gap-6 max-w-[560px] lg:py-0 shrink-0">
+                <div className="relative z-10 flex min-w-0 flex-col gap-6 lg:basis-[48%] lg:max-w-[560px] lg:py-0">
                   <h2
                     className="text-[28px] md:text-[40px] lg:text-[48px] font-normal text-white leading-tight"
                     style={{ fontFamily: "var(--font-noto-serif)" }}
@@ -86,7 +86,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                 </div>
 
                 {/* Mobile: flush left/right/bottom, mask top */}
-                <div className="lg:hidden -mx-10 md:-mx-16 -mb-14 md:-mb-20" aria-hidden="true">
+                <div className="lg:hidden -mx-6 -mb-14 sm:-mx-10 md:-mx-16 md:-mb-20" aria-hidden="true">
                   <img
                     src={CTA_IMAGE}
                     alt=""
@@ -99,7 +99,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                 </div>
 
                 {/* Desktop: flush right/top/bottom, mask left */}
-                <div className="hidden lg:block lg:flex-1 -mr-16 -my-20 self-stretch" aria-hidden="true">
+                <div className="hidden min-w-0 lg:block lg:flex-1 -mr-16 -my-20 self-stretch" aria-hidden="true">
                   <img
                     src={CTA_IMAGE}
                     alt=""
@@ -133,7 +133,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                     placeholder="name@company.com"
                     value={email}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                    className="flex-1 bg-transparent border-0 text-white placeholder:text-white/40 text-[15px] font-sans rounded-full focus-visible:ring-0 focus-visible:ring-offset-0 h-[56px] px-6"
+                    className="min-w-0 flex-1 bg-transparent border-0 text-white placeholder:text-white/40 text-[15px] font-sans rounded-full focus-visible:ring-0 focus-visible:ring-offset-0 h-[56px] px-4 sm:px-6"
                   />
                   <button
                     type="submit"
@@ -154,7 +154,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
             {newsletterVariant === "default" && (
               <div className="flex flex-col items-center gap-10">
                 <h2
-                  className="text-[28px] md:text-[44px] lg:text-[52px] font-normal text-white text-center leading-tight lg:whitespace-nowrap"
+                  className="text-[28px] md:text-[44px] lg:text-[52px] font-normal text-white text-center leading-tight"
                   style={{ fontFamily: "var(--font-noto-serif)" }}
                 >
                   Begin the Engineering Inquiry.
@@ -168,7 +168,7 @@ export default function Footer({ newsletterVariant = "default" }: FooterProps) {
                     placeholder="name@company.com"
                     value={email}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                    className="flex-1 bg-transparent border-0 text-white placeholder:text-white/40 text-[15px] font-sans rounded-full focus-visible:ring-0 focus-visible:ring-offset-0 h-[56px] px-6"
+                    className="min-w-0 flex-1 bg-transparent border-0 text-white placeholder:text-white/40 text-[15px] font-sans rounded-full focus-visible:ring-0 focus-visible:ring-offset-0 h-[56px] px-4 sm:px-6"
                   />
                   <button
                     type="submit"

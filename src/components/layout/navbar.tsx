@@ -19,15 +19,15 @@ export default function Navbar() {
 
   return (
     <header className="w-full bg-white border-b border-black/8 z-50">
-      <nav className="flex items-center justify-between px-6 md:px-[calc((100%-1320px)/2)] h-[80px] md:h-[117px]">
+      <nav className="mx-auto flex h-[80px] w-full max-w-[1320px] items-center justify-between px-6 lg:h-[117px]">
         <Link to="/" className="flex items-center gap-3 shrink-0">
           <img
             src={LOGO_ASSET}
             alt="SixDevs logo mark"
-            className="object-contain w-[55px] h-[60px] md:w-[72px] md:h-[80px]"
+            className="object-contain w-[55px] h-[60px] lg:w-[72px] lg:h-[80px]"
           />
           <span
-            className="text-[28px] md:text-[38px] font-medium capitalize"
+            className="text-[28px] lg:text-[38px] font-medium capitalize"
             style={{
               fontFamily: "var(--font-noto-serif)",
               backgroundImage:
@@ -41,7 +41,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden lg:flex items-center gap-10">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
@@ -56,7 +56,7 @@ export default function Navbar() {
 
         <Link
           to="/contact"
-          className="hidden md:flex items-center gap-4 border border-[#0e131b] rounded-full pl-6 pr-1.5 h-[52px] text-[14px] font-medium uppercase tracking-[0.64px] text-[#0e131b] hover:border-[#0e131b]/70 transition-colors font-sans"
+          className="hidden lg:flex items-center gap-4 border border-[#0e131b] rounded-full pl-6 pr-1.5 h-[52px] text-[14px] font-medium uppercase tracking-[0.64px] text-[#0e131b] hover:border-[#0e131b]/70 transition-colors font-sans"
         >
           Make Inquiry
           <span className="flex items-center justify-center bg-[#650c0e] rounded-full w-[40px] h-[40px] shrink-0">
@@ -66,14 +66,14 @@ export default function Navbar() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
-            className="md:hidden text-[#060a10] p-2"
+            className="lg:hidden text-[#060a10] p-2"
             aria-label="Open menu"
           >
             <Menu className="w-6 h-6" />
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="bg-[#060a10] border-white/10 w-[280px]"
+            className="w-[min(280px,calc(100vw-2rem))] bg-[#060a10] border-white/10"
           >
             <div className="flex flex-col h-full gap-8 pt-12 pb-8 px-6">
               {NAV_LINKS.map((link) => (

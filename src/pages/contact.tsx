@@ -24,7 +24,7 @@ export default function ContactPage() {
   return (
     <PageLayout newsletterVariant="dispatch">
       {/* Header */}
-      <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-20">
+      <section className="relative bg-[#060a10] overflow-hidden pt-16 md:pt-20">
         <video
           autoPlay
           loop
@@ -48,7 +48,7 @@ export default function ContactPage() {
           }}
           aria-hidden="true"
         />
-        <div className="max-w-[1320px] mx-auto px-6 flex flex-col items-center text-center pt-10 pb-16 gap-6">
+        <div className="max-w-[1320px] mx-auto px-6 flex flex-col items-center text-center pt-8 pb-14 md:pt-10 md:pb-20 gap-6">
           <motion.p
             className="text-[18px] font-light uppercase tracking-[0.17em] text-[#fbe9a2]"
             style={{ fontFamily: "var(--font-poppins)" }}
@@ -84,7 +84,7 @@ export default function ContactPage() {
       {/* Form */}
       <section className="bg-[#fdfdfd] py-20 relative overflow-hidden">
         <div
-          className="absolute right-[-99px] top-[173px] w-[890px] h-[890px] opacity-20 pointer-events-none"
+          className="absolute right-[-25vw] top-[173px] aspect-square w-[min(890px,140vw)] opacity-20 pointer-events-none"
           style={{
             background: "radial-gradient(circle, rgba(101,12,14,0.25) 0%, transparent 65%)",
           }}
@@ -99,7 +99,7 @@ export default function ContactPage() {
             ].map(({ label, value, Icon }, i) => (
               <motion.div
                 key={label}
-                className="bg-[rgba(101,12,14,0.05)] rounded-[5px] px-6 py-6 flex items-center gap-5"
+                className="bg-[rgba(101,12,14,0.05)] rounded-[5px] px-6 py-6 flex flex-col items-start gap-5 sm:flex-row sm:items-center"
                 variants={slideLeft}
                 initial="hidden"
                 whileInView="visible"
@@ -109,7 +109,7 @@ export default function ContactPage() {
                 <div className="shrink-0">
                   <Icon />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p
                     className="text-[13px] uppercase tracking-[2.4px] font-sans mb-1"
                     style={{ color: "#650c0e" }}

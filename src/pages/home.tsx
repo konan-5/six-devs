@@ -1,5 +1,4 @@
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+import PageLayout from "@/components/layout/page-layout";
 import HeroSection from "@/components/sections/hero-section";
 import CardsSection from "@/components/sections/cards-section";
 import TechnicalDomains from "@/components/sections/technical-domains";
@@ -8,17 +7,12 @@ import DecentralizedProtocols from "@/components/sections/decentralized-protocol
 
 export default function HomePage() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <HeroSection />
-        <CardsSection />
-        <TechnicalDomains />
-        <IntelligentSystems />
-        <DecentralizedProtocols />
-        
-      </main>
-      <Footer />
-    </>
+    <PageLayout>
+      <HeroSection />
+      <CardsSection />
+      <TechnicalDomains />
+      <IntelligentSystems />
+      <DecentralizedProtocols />
+    </PageLayout>
   );
 }

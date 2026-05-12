@@ -183,16 +183,16 @@ export default function InsightsPage() {
               {ARTICLES.map((article) => (
                 <div
                   key={article.title}
-                  className="flex items-stretch border border-black/10 rounded-[5px] overflow-hidden bg-white flex-1"
+                  className="flex flex-col sm:flex-row sm:items-stretch border border-black/10 rounded-[5px] overflow-hidden bg-white flex-1"
                 >
-                  <div className="w-[120px] shrink-0">
+                  <div className="h-40 w-full sm:h-auto sm:w-[120px] sm:shrink-0">
                     <img
                       src={article.image}
                       alt={article.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="flex flex-col gap-3 p-5 flex-1 justify-center">
+                  <div className="flex min-w-0 flex-col gap-3 p-5 flex-1 justify-center">
                     <p
                       className="text-[12px] uppercase font-sans text-[#650c0e]"
                       style={{ letterSpacing: "0.13em" }}
@@ -206,7 +206,7 @@ export default function InsightsPage() {
                       {article.title}
                     </h3>
                   </div>
-                  <div className="flex items-center pr-5 shrink-0">
+                  <div className="flex items-center px-5 pb-5 sm:px-0 sm:pb-0 sm:pr-5 sm:shrink-0">
                     <Link
                       to="#"
                       aria-label={`Read ${article.title}`}
@@ -229,7 +229,7 @@ export default function InsightsPage() {
             {CATEGORIES.map(({ label, description, Icon }, index) => (
               <motion.div
                 key={label}
-                className="flex items-center gap-5 md:gap-8 px-6 md:px-[60px] py-8 border border-[#D5D5D5] rounded-[10px] bg-white"
+                className="flex flex-col items-start gap-5 px-6 py-8 sm:flex-row sm:items-center lg:gap-8 lg:px-[60px] border border-[#D5D5D5] rounded-[10px] bg-white"
                 style={{ boxShadow: "0px 4px 44px rgba(0,0,0,0.04)" }}
                 variants={fadeUp}
                 initial="hidden"
@@ -237,10 +237,10 @@ export default function InsightsPage() {
                 viewport={VP}
                 transition={{ ...transition, delay: index * 0.1 }}
               >
-                <div className="shrink-0">
+                <div className="shrink-0 max-w-[80px] sm:max-w-none [&>svg]:h-auto [&>svg]:max-w-full">
                   <Icon />
                 </div>
-                <div className="flex flex-col gap-3">
+                <div className="flex min-w-0 flex-col gap-3">
                   <h3
                     className="text-[30px] font-normal text-[#650c0e]"
                     style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "33px" }}

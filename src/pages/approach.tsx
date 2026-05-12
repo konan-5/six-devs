@@ -200,7 +200,7 @@ export default function ApproachPage() {
                 {DISPLAY_MEMBERS.map((member, i) => {
                   const isFeature = i % TEAM_MEMBERS.length === 3;
                   return (
-                    <div key={`${i}-${member.image}`} className="group relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden">
+                    <div key={`${i}-${member.image}`} className="group relative w-[min(397px,calc(100vw-3rem))] shrink-0 aspect-square rounded-[10px] overflow-hidden">
                       <img
                         src={member.image} alt={member.name}
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
@@ -214,8 +214,8 @@ export default function ApproachPage() {
                             : "linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%)",
                         }}
                       />
-                      <div className="absolute bottom-8 left-[39px]">
-                        <p className="text-[30px] font-normal text-white" style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "51px" }}>
+                      <div className="absolute bottom-8 left-6 right-6 sm:left-[39px] sm:right-8">
+                        <p className="text-[26px] sm:text-[30px] font-normal text-white" style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "1.35" }}>
                           {member.name}
                         </p>
                         <p className="text-[16px] text-white font-sans" style={{ lineHeight: "27px" }}>
@@ -231,7 +231,7 @@ export default function ApproachPage() {
 
           <div
             ref={progressRef}
-            className="relative w-[402px] max-w-[calc(100%-3rem)] h-[14px] rounded-[40px] cursor-pointer select-none"
+            className="relative mx-6 h-[14px] w-full max-w-[402px] rounded-[40px] cursor-pointer select-none"
             style={{ background: "rgba(0,0,0,0.1)", border: "1px solid rgba(0,0,0,0.1)" }}
             onMouseDown={handleProgressMouseDown}
             onTouchStart={handleProgressTouchStart}
