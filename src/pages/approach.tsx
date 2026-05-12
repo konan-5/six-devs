@@ -38,26 +38,84 @@ const PHASES = [
 
 const VP = { once: true, margin: "-80px" };
 
+const DISPLAY_MEMBERS = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
+
 export default function ApproachPage() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const progressFillRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const pausedRef = useRef(false);
   const [activePhase, setActivePhase] = useState(0);
   const { fadeUp, fadeIn, transition, slowTransition } = useMotionConfig();
+
+  const updateFill = useCallback((scrollLeft: number, loopPoint: number) => {
+    if (progressFillRef.current && loopPoint > 0) {
+      const progress = scrollLeft / loopPoint;
+      progressFillRef.current.style.width = `${Math.max(progress * 402, 24)}px`;
+    }
+  }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
     el.scrollLeft = 252;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    if (maxScroll > 0) setScrollProgress(252 / maxScroll);
-  }, []);
+
+    const tick = () => {
+      if (!pausedRef.current) {
+        el.scrollLeft += 0.6;
+        const loopPoint = el.scrollWidth / 2;
+        if (el.scrollLeft >= loopPoint) el.scrollLeft -= loopPoint;
+        updateFill(el.scrollLeft, loopPoint);
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [updateFill]);
 
   const handleScroll = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    if (maxScroll > 0) setScrollProgress(el.scrollLeft / maxScroll);
-  }, []);
+    updateFill(el.scrollLeft, el.scrollWidth / 2);
+  }, [updateFill]);
+
+  const seekToPosition = useCallback((clientX: number) => {
+    const bar = progressRef.current;
+    const el = scrollRef.current;
+    if (!bar || !el) return;
+    const rect = bar.getBoundingClientRect();
+    const fraction = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    const loopPoint = el.scrollWidth / 2;
+    el.scrollLeft = fraction * loopPoint;
+    updateFill(el.scrollLeft, loopPoint);
+  }, [updateFill]);
+
+  const handleProgressMouseDown = useCallback((e: React.MouseEvent) => {
+    pausedRef.current = true;
+    seekToPosition(e.clientX);
+    const onMove = (e: MouseEvent) => seekToPosition(e.clientX);
+    const onUp = () => {
+      pausedRef.current = false;
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseup", onUp);
+    };
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseup", onUp);
+  }, [seekToPosition]);
+
+  const handleProgressTouchStart = useCallback((e: React.TouchEvent) => {
+    pausedRef.current = true;
+    seekToPosition(e.touches[0].clientX);
+    const onMove = (e: TouchEvent) => seekToPosition(e.touches[0].clientX);
+    const onEnd = () => {
+      pausedRef.current = false;
+      document.removeEventListener("touchmove", onMove);
+      document.removeEventListener("touchend", onEnd);
+    };
+    document.addEventListener("touchmove", onMove);
+    document.addEventListener("touchend", onEnd);
+  }, [seekToPosition]);
 
   return (
     <PageLayout>
@@ -135,12 +193,14 @@ export default function ApproachPage() {
               className="overflow-x-auto [&::-webkit-scrollbar]:hidden"
               style={{ scrollbarWidth: "none" }}
               onScroll={handleScroll}
+              onMouseEnter={() => { pausedRef.current = true; }}
+              onMouseLeave={() => { pausedRef.current = false; }}
             >
               <div className="flex flex-row gap-[25px] w-max">
-                {TEAM_MEMBERS.map((member, i) => {
-                  const isFeature = i === 3;
+                {DISPLAY_MEMBERS.map((member, i) => {
+                  const isFeature = i % TEAM_MEMBERS.length === 3;
                   return (
-                    <div key={i} className="group relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden">
+                    <div key={`${i}-${member.image}`} className="group relative w-[397px] h-[397px] shrink-0 rounded-[10px] overflow-hidden">
                       <img
                         src={member.image} alt={member.name}
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
@@ -170,12 +230,16 @@ export default function ApproachPage() {
           </motion.div>
 
           <div
-            className="relative w-[402px] max-w-[calc(100%-3rem)] h-[14px] rounded-[40px]"
+            ref={progressRef}
+            className="relative w-[402px] max-w-[calc(100%-3rem)] h-[14px] rounded-[40px] cursor-pointer select-none"
             style={{ background: "rgba(0,0,0,0.1)", border: "1px solid rgba(0,0,0,0.1)" }}
+            onMouseDown={handleProgressMouseDown}
+            onTouchStart={handleProgressTouchStart}
           >
             <div
-              className="absolute left-0 top-0 h-full rounded-[40px] bg-[#640c0d]"
-              style={{ width: `${Math.max(scrollProgress * 402, 24)}px`, transition: "width 0.1s linear" }}
+              ref={progressFillRef}
+              className="absolute left-0 top-0 h-full rounded-[40px] bg-[#640c0d] pointer-events-none"
+              style={{ width: "24px" }}
             />
           </div>
         </div>

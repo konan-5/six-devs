@@ -206,7 +206,7 @@ export default function ProjectsPage() {
         <div className="max-w-[1320px] mx-auto px-6">
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-10 lg:gap-[151px]">
             <motion.div
-              className="w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
+              className="group w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-[1/1.1] rounded-[20px] overflow-hidden"
               variants={slideLeft}
               initial="hidden"
               whileInView="visible"
@@ -216,7 +216,7 @@ export default function ProjectsPage() {
               <img
                 src={CS02_IMAGE}
                 alt="Vortex Mesh Protocol"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>
 
