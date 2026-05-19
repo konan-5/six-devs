@@ -10,12 +10,11 @@ const INTEGRITY_IMAGE = "/assets/approach-integrity-image.png";
 const EXPERTISE_IMAGE = "/assets/approach-expertise-image.png";
 
 const TEAM_MEMBERS = [
-  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-1.png" },
-  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-2.png" },
-  { nickname: "Sarah Chen", role: "Quantum Security", image: "/assets/team-3.png" },
-  { nickname: "Marcus Vogt", role: "Compiler Design", image: "/assets/team-4.png" },
-  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-5.png" },
-  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-6.png" },
+  { nickname: "Clau", role: "Distributed Systems", image: "/avatars/1.png" },
+  { nickname: "Konan", role: "Quantum Security", image: "/avatars/2.png" },
+  { nickname: "Rustinja", role: "Compiler Design", image: "/avatars/3.jpg" },
+  { nickname: "SerendipitySeeker", role: "Distributed Systems", image: "/avatars/4.jpg" },
+  { nickname: "Callum", role: "Distributed Systems", image: "/avatars/5.jpg" },
 ];
 
 const PHASES = [
@@ -99,11 +98,11 @@ export default function ApproachPage() {
                 The Collective
               </h2>
               <p className="text-[18px] uppercase tracking-[0.13em] font-sans" style={{ color: "#650c0e" }}>
-                Six Sovereign Engineers. One Unified Ethos.
+                Five Sovereign Engineers. One Unified Ethos.
               </p>
             </div>
             <p className="text-[16px] text-[#0a0402] leading-[27px] font-sans text-center">
-              Every project is personally overseen by our six founding partners. No junior
+              Every project is personally overseen by our five founding partners. No junior
               associates. No hand-offs. Direct engineering authority from inception to deployment.
             </p>
           </motion.div>
