@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -10,12 +10,12 @@ const INTEGRITY_IMAGE = "/assets/approach-integrity-image.png";
 const EXPERTISE_IMAGE = "/assets/approach-expertise-image.png";
 
 const TEAM_MEMBERS = [
-  { name: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-1.png" },
-  { name: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-2.png" },
-  { name: "Sarah Chen", role: "Quantum Security", image: "/assets/team-3.png" },
-  { name: "Marcus Vogt", role: "Compiler Design", image: "/assets/team-4.png" },
-  { name: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-5.png" },
-  { name: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-6.png" },
+  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-1.png" },
+  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-2.png" },
+  { nickname: "Sarah Chen", role: "Quantum Security", image: "/assets/team-3.png" },
+  { nickname: "Marcus Vogt", role: "Compiler Design", image: "/assets/team-4.png" },
+  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-5.png" },
+  { nickname: "Elias Thorne", role: "Distributed Systems", image: "/assets/team-6.png" },
 ];
 
 const PHASES = [
@@ -38,84 +38,9 @@ const PHASES = [
 
 const VP = { once: true, margin: "-80px" };
 
-const DISPLAY_MEMBERS = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
-
 export default function ApproachPage() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-  const progressFillRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number | null>(null);
-  const pausedRef = useRef(false);
   const [activePhase, setActivePhase] = useState(0);
   const { fadeUp, fadeIn, transition, slowTransition } = useMotionConfig();
-
-  const updateFill = useCallback((scrollLeft: number, loopPoint: number) => {
-    if (progressFillRef.current && loopPoint > 0) {
-      const progress = scrollLeft / loopPoint;
-      progressFillRef.current.style.width = `${Math.max(progress * 402, 24)}px`;
-    }
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollLeft = 252;
-
-    const tick = () => {
-      if (!pausedRef.current) {
-        el.scrollLeft += 0.6;
-        const loopPoint = el.scrollWidth / 2;
-        if (el.scrollLeft >= loopPoint) el.scrollLeft -= loopPoint;
-        updateFill(el.scrollLeft, loopPoint);
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [updateFill]);
-
-  const handleScroll = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    updateFill(el.scrollLeft, el.scrollWidth / 2);
-  }, [updateFill]);
-
-  const seekToPosition = useCallback((clientX: number) => {
-    const bar = progressRef.current;
-    const el = scrollRef.current;
-    if (!bar || !el) return;
-    const rect = bar.getBoundingClientRect();
-    const fraction = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    const loopPoint = el.scrollWidth / 2;
-    el.scrollLeft = fraction * loopPoint;
-    updateFill(el.scrollLeft, loopPoint);
-  }, [updateFill]);
-
-  const handleProgressMouseDown = useCallback((e: React.MouseEvent) => {
-    pausedRef.current = true;
-    seekToPosition(e.clientX);
-    const onMove = (e: MouseEvent) => seekToPosition(e.clientX);
-    const onUp = () => {
-      pausedRef.current = false;
-      document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mouseup", onUp);
-    };
-    document.addEventListener("mousemove", onMove);
-    document.addEventListener("mouseup", onUp);
-  }, [seekToPosition]);
-
-  const handleProgressTouchStart = useCallback((e: React.TouchEvent) => {
-    pausedRef.current = true;
-    seekToPosition(e.touches[0].clientX);
-    const onMove = (e: TouchEvent) => seekToPosition(e.touches[0].clientX);
-    const onEnd = () => {
-      pausedRef.current = false;
-      document.removeEventListener("touchmove", onMove);
-      document.removeEventListener("touchend", onEnd);
-    };
-    document.addEventListener("touchmove", onMove);
-    document.addEventListener("touchend", onEnd);
-  }, [seekToPosition]);
 
   return (
     <PageLayout>
@@ -163,7 +88,7 @@ export default function ApproachPage() {
       </section>
 
       {/* The Collective */}
-      <section className="bg-[#fdfdfd] py-20 overflow-hidden">
+      <section className="bg-[#fdfdfd] py-20">
         <div className="flex flex-col items-center gap-10">
           <motion.div
             className="flex flex-col items-center gap-[38px] px-6 w-full max-w-[871px] mx-auto text-center"
@@ -184,64 +109,43 @@ export default function ApproachPage() {
           </motion.div>
 
           <motion.div
-            className="max-w-[1920px] w-full mx-auto px-6"
+            className="max-w-[1320px] w-full mx-auto px-6"
             variants={fadeIn} initial="hidden" whileInView="visible" viewport={VP}
             transition={{ ...slowTransition, delay: 0.1 }}
           >
-            <div
-              ref={scrollRef}
-              className="overflow-x-auto [&::-webkit-scrollbar]:hidden"
-              style={{ scrollbarWidth: "none" }}
-              onScroll={handleScroll}
-              onMouseEnter={() => { pausedRef.current = true; }}
-              onMouseLeave={() => { pausedRef.current = false; }}
-            >
-              <div className="flex flex-row gap-[25px] w-max">
-                {DISPLAY_MEMBERS.map((member, i) => {
-                  const isFeature = i % TEAM_MEMBERS.length === 3;
-                  return (
-                    <div key={`${i}-${member.image}`} className="group relative w-[min(397px,calc(100vw-3rem))] shrink-0 aspect-square rounded-[10px] overflow-hidden">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {TEAM_MEMBERS.map((member) => (
+                <div
+                  key={member.image}
+                  className="flex flex-col items-center gap-4 rounded-[10px] bg-[#0a0402] px-4 py-6 md:px-5 md:py-8"
+                >
+                  <div className="relative shrink-0">
+                    <div
+                      className="rounded-full p-[3px]"
+                      style={{ background: "linear-gradient(135deg, #650c0e 0%, #fbe9a2 100%)" }}
+                    >
                       <img
-                        src={member.image} alt={member.name}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        src={member.image}
+                        alt={member.nickname}
+                        className="w-[88px] h-[88px] md:w-[100px] md:h-[100px] rounded-full object-cover grayscale"
                       />
-                      <div
-                        className="absolute inset-x-0 bottom-0 rounded-b-[10px]"
-                        style={{
-                          height: isFeature ? "164px" : "138px",
-                          background: isFeature
-                            ? "linear-gradient(180deg, rgba(100,12,13,0) 0%, #640C0D 100%)"
-                            : "linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%)",
-                        }}
-                      />
-                      <div className="absolute bottom-8 left-6 right-6 sm:left-[39px] sm:right-8">
-                        <p className="text-[26px] sm:text-[30px] font-normal text-white" style={{ fontFamily: "var(--font-noto-serif)", lineHeight: "1.35" }}>
-                          {member.name}
-                        </p>
-                        <p className="text-[16px] text-white font-sans" style={{ lineHeight: "27px" }}>
-                          {member.role}
-                        </p>
-                      </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 text-center">
+                    <p
+                      className="text-[16px] md:text-[18px] font-medium text-white leading-tight"
+                      style={{ fontFamily: "var(--font-noto-serif)" }}
+                    >
+                      {member.nickname}
+                    </p>
+                    <p className="text-[13px] md:text-[14px] text-white/60 font-sans leading-snug">
+                      {member.role}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
-
-          <div
-            ref={progressRef}
-            className="relative mx-6 h-[14px] w-full max-w-[402px] rounded-[40px] cursor-pointer select-none"
-            style={{ background: "rgba(0,0,0,0.1)", border: "1px solid rgba(0,0,0,0.1)" }}
-            onMouseDown={handleProgressMouseDown}
-            onTouchStart={handleProgressTouchStart}
-          >
-            <div
-              ref={progressFillRef}
-              className="absolute left-0 top-0 h-full rounded-[40px] bg-[#640c0d] pointer-events-none"
-              style={{ width: "24px" }}
-            />
-          </div>
         </div>
       </section>
 
