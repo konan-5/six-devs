@@ -10,11 +10,11 @@ const INTEGRITY_IMAGE = "/assets/approach-integrity-image.png";
 const EXPERTISE_IMAGE = "/assets/approach-expertise-image.png";
 
 const TEAM_MEMBERS = [
-  { nickname: "Clau", role: "Distributed Systems", image: "/avatars/1.png" },
-  { nickname: "Konan", role: "Quantum Security", image: "/avatars/2.png" },
-  { nickname: "Rustinja", role: "Compiler Design", image: "/avatars/3.jpg" },
-  { nickname: "SerendipitySeeker", role: "Distributed Systems", image: "/avatars/4.jpg" },
-  { nickname: "Callum", role: "Distributed Systems", image: "/avatars/5.jpg" },
+  { nickname: "Clau", role: "CEO", image: "/avatars/1.png" },
+  { nickname: "Konan", role: "Co-founder, Technical Director", image: "/avatars/2.png" },
+  { nickname: "Rustinja", role: "Principal Engineer", image: "/avatars/4.jpg" },
+  { nickname: "SerendipitySeeker", role: "Full-Stack Engineer", image: "/avatars/3.jpg" },
+  { nickname: "Callum", role: "Backend Engineer", image: "/avatars/5.jpg" },
 ];
 
 const PHASES = [
@@ -116,9 +116,9 @@ export default function ApproachPage() {
               {TEAM_MEMBERS.map((member) => (
                 <div
                   key={member.image}
-                  className="flex flex-col items-center gap-4 rounded-[10px] bg-[#0a0402] px-4 py-6 md:px-5 md:py-8"
+                  className="group flex flex-col items-center gap-5 rounded-[10px] bg-white border border-black/10 px-4 py-8 md:px-6 md:py-10 shadow-sm"
                 >
-                  <div className="relative shrink-0">
+                  <div className="relative shrink-0 w-full flex justify-center">
                     <div
                       className="rounded-full p-[3px]"
                       style={{ background: "linear-gradient(135deg, #650c0e 0%, #fbe9a2 100%)" }}
@@ -126,18 +126,18 @@ export default function ApproachPage() {
                       <img
                         src={member.image}
                         alt={member.nickname}
-                        className="w-[88px] h-[88px] md:w-[100px] md:h-[100px] rounded-full object-cover grayscale"
+                        className="w-[min(140px,55vw)] h-[min(140px,55vw)] sm:w-[160px] sm:h-[160px] md:w-[180px] md:h-[180px] rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col items-center gap-1 text-center">
                     <p
-                      className="text-[16px] md:text-[18px] font-medium text-white leading-tight"
+                      className="text-[16px] md:text-[18px] font-medium text-[#0a0402] leading-tight"
                       style={{ fontFamily: "var(--font-noto-serif)" }}
                     >
                       {member.nickname}
                     </p>
-                    <p className="text-[13px] md:text-[14px] text-white/60 font-sans leading-snug">
+                    <p className="text-[13px] md:text-[14px] text-[#0a0402]/60 font-sans leading-snug">
                       {member.role}
                     </p>
                   </div>

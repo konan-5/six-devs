@@ -9,10 +9,9 @@ import AIInfrastructureIcon from "@/components/svg/AIInfrastructureIcon";
 import CaseStudy01Icon from "@/components/svg/CaseStudy01Icon";
 import CaseStudy02Icon from "@/components/svg/CaseStudy02Icon";
 import CaseStudy03Icon from "@/components/svg/CaseStudy03Icon";
+import { PROJECTS } from "@/data/projects";
 
-const CS01_IMAGE = "/assets/project-cs01-image.png";
-const CS02_IMAGE = "/assets/project-cs02-image.png";
-const CS03_IMAGE = "/assets/project-cs03-image.png";
+const [gatewayz, olaraWallet, superSol] = PROJECTS;
 
 const VP = { once: true, margin: "-100px" };
 
@@ -132,12 +131,10 @@ export default function ProjectsPage() {
                 className="text-[46px] md:text-[55px] font-normal leading-[1.05] text-[#061b31]"
                 style={{ fontFamily: "var(--font-noto-serif)" }}
               >
-                Aura Ledger Engine
+                {gatewayz.name}
               </h2>
               <p className="text-[16px] text-[#060a10] leading-[1.7] font-sans">
-                Re-engineering a high-frequency settlement engine processing $2B daily. The
-                challenge was reducing latency from 150ms to &lt;10ms without compromising ACID
-                compliance.
+                {gatewayz.description}
               </p>
 
               <div className="flex flex-col gap-2">
@@ -148,8 +145,7 @@ export default function ProjectsPage() {
                   The Result
                 </h3>
                 <p className="text-[16px] text-[#060a10] leading-[1.7] font-sans">
-                  Successfully deployed a multi-threaded execution model that achieved 99.999%
-                  uptime during the 2023 market volatility peaks.
+                  {gatewayz.tagline}
                 </p>
               </div>
 
@@ -161,7 +157,7 @@ export default function ProjectsPage() {
                   The Tech Stack
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {["Rust", "PostgreSQL", "Kafka", "AWS Nitro"].map((tech) => (
+                  {gatewayz.stack.map((tech) => (
                     <span
                       key={tech}
                       className="border border-[rgba(215,215,215,0.5)] bg-white/30 rounded-[5px] px-6 h-[46px] flex items-center text-[16px] text-[#060a10] font-sans"
@@ -192,8 +188,8 @@ export default function ProjectsPage() {
               transition={{ ...slowTransition, delay: 0.1 }}
             >
               <img
-                src={CS01_IMAGE}
-                alt="Aura Ledger Engine"
+                src={gatewayz.image}
+                alt={gatewayz.name}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>
@@ -214,8 +210,8 @@ export default function ProjectsPage() {
               transition={{ ...slowTransition, delay: 0.1 }}
             >
               <img
-                src={CS02_IMAGE}
-                alt="Vortex Mesh Protocol"
+                src={olaraWallet.image}
+                alt={olaraWallet.name}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>
@@ -238,8 +234,11 @@ export default function ProjectsPage() {
                 className="text-[46px] md:text-[55px] font-normal leading-[1.05] text-white"
                 style={{ fontFamily: "var(--font-noto-serif)" }}
               >
-                Deep Dive: The Result
+                {olaraWallet.name}
               </h2>
+              <p className="text-[16px] text-white/70 font-sans leading-[1.7]">
+                {olaraWallet.description}
+              </p>
 
               <div className="flex items-start gap-12">
                 <span
@@ -283,7 +282,7 @@ export default function ProjectsPage() {
                   Architectural Stack
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {["Go-Lang Core", "WebRTC", "Protocol Buffers", "Kubernetes"].map((tech) => (
+                  {olaraWallet.stack.map((tech) => (
                     <span
                       key={tech}
                       className="border border-[rgba(215,215,215,0.3)] rounded-[5px] px-6 h-[46px] flex items-center text-[16px] text-white font-sans"
@@ -311,11 +310,10 @@ export default function ProjectsPage() {
                 className="text-[46px] md:text-[55px] font-normal text-white leading-[1.05]"
                 style={{ fontFamily: "var(--font-noto-serif)" }}
               >
-                Vortex Mesh Protocol
+                {olaraWallet.name}
               </h3>
               <p className="text-[16px] text-white/70 font-sans leading-[1.7] mt-3">
-                Implementing a custom P2P communication layer for edge-computing networks in
-                low-bandwidth environments.
+                {olaraWallet.tagline}
               </p>
             </div>
           </div>
@@ -343,7 +341,7 @@ export default function ProjectsPage() {
               className="text-[46px] md:text-[55px] font-normal text-[#0a0402]"
               style={{ fontFamily: "var(--font-noto-serif)" }}
             >
-              Neural Stream Orchestrator
+              {superSol.name}
             </h2>
           </motion.div>
 
@@ -365,8 +363,7 @@ export default function ProjectsPage() {
                   The Challenge
                 </h3>
                 <p className="text-[16px] text-[#0a0402] leading-[1.7] font-sans">
-                  Scaling AI inference pipelines to handle 50k concurrent streams without linear
-                  cost scaling.
+                  {superSol.description}
                 </p>
               </div>
 
@@ -378,7 +375,7 @@ export default function ProjectsPage() {
                   The Solution
                 </h3>
                 <p className="text-[16px] text-[#0a0402] leading-[1.7] font-sans">
-                  Dynamic resource allocation using a custom-built WASM orchestration layer.
+                  {superSol.tagline}
                 </p>
               </div>
 
@@ -390,7 +387,7 @@ export default function ProjectsPage() {
                   The Stack
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {["Python", "PyTorch", "WebAssembly", "Redis"].map((tech) => (
+                  {superSol.stack.map((tech) => (
                     <span
                       key={tech}
                       className="border border-[rgba(215,215,215,0.5)] rounded-[5px] px-6 h-[46px] flex items-center text-[16px] text-[#0a0402] font-sans"
@@ -421,8 +418,8 @@ export default function ProjectsPage() {
               transition={{ ...slowTransition, delay: 0.1 }}
             >
               <img
-                src={CS03_IMAGE}
-                alt="Neural Stream Orchestrator"
+                src={superSol.image}
+                alt={superSol.name}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>
