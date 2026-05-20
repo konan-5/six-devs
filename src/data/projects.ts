@@ -35,4 +35,13 @@ export const PROJECTS: Project[] = [
       "High-performance tooling on Solana—optimized transaction flows, wallet connectivity, and infrastructure tuned for speed and composability.",
     stack: ["Rust", "Solana", "Anchor", "React"],
   },
+  {
+    id: 4,
+    name: "Hyperlend",
+    image: "/projects/4.png",
+    tagline: "On-chain lending experience",
+    description:
+      "A lending platform experience focused on fast credit flows, transparent risk controls, and a clean interface for borrowing and liquidity participation.",
+    stack: ["React", "TypeScript", "Solana", "DeFi"],
+  },
 ];

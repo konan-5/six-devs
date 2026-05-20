@@ -410,7 +410,7 @@ export default function ProjectsPage() {
             </motion.div>
 
             <motion.div
-              className="group w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-square rounded-[20px] overflow-hidden"
+              className="group w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-[16/10] rounded-[20px] overflow-hidden"
               variants={slideRight}
               initial="hidden"
               whileInView="visible"
