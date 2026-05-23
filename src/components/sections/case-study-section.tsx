@@ -67,18 +67,16 @@ function CtaButton({ label }: { label: string }) {
 
 function ProjectImage({
   project,
-  aspectClass,
   variants,
   transition,
 }: {
   project: CaseStudyConfig["project"];
-  aspectClass: string;
   variants: ReturnType<typeof useMotionConfig>["slideLeft"];
   transition: ReturnType<typeof useMotionConfig>["slowTransition"];
 }) {
   return (
     <motion.div
-      className={`group w-full md:w-[300px] lg:w-[579px] shrink-0 ${aspectClass} rounded-[20px] overflow-hidden`}
+      className="group h-full w-full rounded-[20px] overflow-hidden flex flex-col justify-center"
       variants={variants}
       initial="hidden"
       whileInView="visible"
@@ -88,7 +86,7 @@ function ProjectImage({
       <img
         src={project.image}
         alt={project.name}
-        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+        className="object-contain object-top block grayscale group-hover:grayscale-0 transition-all duration-500"
       />
     </motion.div>
   );
@@ -100,24 +98,21 @@ export default function CaseStudySection({
   Icon,
   theme,
   layout,
-  imageAspect,
   header,
   blocks,
   stackLabel,
   ctaLabel,
-  stats,
   footerTagline,
 }: Props) {
   const { fadeUp, slideLeft, slideRight, transition, slowTransition } = useMotionConfig();
   const colors = THEME[theme];
   const caseLabel = `Case Study ${String(index + 1).padStart(2, "0")}`;
-  const aspectClass = imageAspect === "portrait" ? "aspect-[1/1.1]" : "aspect-[16/10]";
   const titleClass =
     header === "inline" && theme === "light" ? colors.titleInline : colors.title;
 
   const contentColumn = (
     <motion.div
-      className={`flex flex-col gap-8 flex-1 ${layout === "standard" ? "max-w-[573px]" : layout === "editorial" ? "max-w-[523px]" : ""}`}
+      className="flex flex-col gap-8 w-full md:flex-[1] md:min-w-0"
       variants={layout === "reverse" ? slideRight : slideLeft}
       initial="hidden"
       whileInView="visible"
@@ -168,25 +163,6 @@ export default function CaseStudySection({
         </div>
       ))}
 
-      {stats?.map(({ value, label, description }) => (
-        <div key={label} className="flex items-start gap-12">
-          <span
-            className="text-[40px] font-normal text-white shrink-0"
-            style={{ fontFamily: "var(--font-noto-serif)" }}
-          >
-            {value}
-          </span>
-          <div>
-            <p className="text-[14px] uppercase tracking-[2.4px] text-white font-sans mb-1">
-              {label}
-            </p>
-            <p className="text-[16px] text-white/70 font-sans leading-[1.7]">
-              {description}
-            </p>
-          </div>
-        </div>
-      ))}
-
       <div className={`flex flex-col gap-4 ${layout === "reverse" ? "pt-4" : ""}`}>
         <h3
           className={`text-[30px] font-normal ${theme === "light" ? "text-[#0a0402]" : "text-white"}`}
@@ -202,12 +178,13 @@ export default function CaseStudySection({
   );
 
   const imageColumn = (
-    <ProjectImage
-      project={project}
-      aspectClass={aspectClass}
-      variants={layout === "reverse" ? slideLeft : slideRight}
-      transition={slowTransition}
-    />
+    <div className="w-full md:flex-[2] md:min-w-0 md:self-stretch">
+      <ProjectImage
+        project={project}
+        variants={layout === "reverse" ? slideLeft : slideRight}
+        transition={slowTransition}
+      />
+    </div>
   );
 
   return (
@@ -238,8 +215,8 @@ export default function CaseStudySection({
         )}
 
         <div
-          className={`flex flex-col md:flex-row items-start gap-12 md:gap-10 lg:gap-16 xl:gap-[120px] ${
-            layout === "reverse" ? "flex-col-reverse md:flex-row items-center" : ""
+          className={`flex flex-col md:flex-row md:items-stretch gap-12 md:gap-10 lg:gap-16 xl:gap-[120px] ${
+            layout === "reverse" ? "flex-col-reverse md:flex-row" : ""
           }`}
         >
           {layout === "reverse" ? (
