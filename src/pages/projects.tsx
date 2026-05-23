@@ -9,9 +9,10 @@ import AIInfrastructureIcon from "@/components/svg/AIInfrastructureIcon";
 import CaseStudy01Icon from "@/components/svg/CaseStudy01Icon";
 import CaseStudy02Icon from "@/components/svg/CaseStudy02Icon";
 import CaseStudy03Icon from "@/components/svg/CaseStudy03Icon";
+import CaseStudy04Icon from "@/components/svg/CaseStudy04Icon";
 import { PROJECTS } from "@/data/projects";
 
-const [gatewayz, olaraWallet, superSol] = PROJECTS;
+const [gatewayz, olaraWallet, superSol, hyperlend] = PROJECTS;
 
 const VP = { once: true, margin: "-100px" };
 
@@ -420,6 +421,113 @@ export default function ProjectsPage() {
               <img
                 src={superSol.image}
                 alt={superSol.name}
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study 04 */}
+      <section className="bg-[#111] py-20">
+        <div className="max-w-[1320px] mx-auto px-6">
+          <motion.div
+            className="text-center mb-16"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VP}
+            transition={transition}
+          >
+            <p
+              className="text-[14px] uppercase tracking-[2.4px] mb-4 font-sans"
+              style={{ color: "#fbe9a2" }}
+            >
+              Case Study 04
+            </p>
+            <h2
+              className="text-[46px] md:text-[55px] font-normal text-white"
+              style={{ fontFamily: "var(--font-noto-serif)" }}
+            >
+              {hyperlend.name}
+            </h2>
+          </motion.div>
+
+          <div className="flex flex-col md:flex-row items-start gap-12 md:gap-10 lg:gap-16 xl:gap-[120px]">
+            <motion.div
+              className="flex flex-col gap-8 flex-1 max-w-[523px]"
+              variants={slideLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={VP}
+              transition={transition}
+            >
+              <CaseStudy04Icon />
+              <div className="flex flex-col gap-4">
+                <h3
+                  className="text-[30px] font-normal text-white"
+                  style={{ fontFamily: "var(--font-noto-serif)" }}
+                >
+                  The Mission
+                </h3>
+                <p className="text-[16px] text-white/70 font-sans">
+                  {hyperlend.description}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <h3
+                  className="text-[30px] font-normal text-white"
+                  style={{ fontFamily: "var(--font-noto-serif)" }}
+                >
+                  Our Solution
+                </h3>
+                <p className="text-[16px] text-white/70 font-sans">
+                  {hyperlend.tagline}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <h3
+                  className="text-[30px] font-normal text-white"
+                  style={{ fontFamily: "var(--font-noto-serif)" }}
+                >
+                  The Stack
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {hyperlend.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="border border-[rgba(215,215,215,0.3)] rounded-[5px] px-6 h-[46px] flex items-center text-[16px] text-white font-sans"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-4 self-start bg-[#650c0e] rounded-full pl-6 pr-1.5 h-[58px] text-[14px] font-medium uppercase tracking-[0.64px] text-white hover:bg-[#7a0f12] transition-colors font-sans"
+              >
+                Explore Manuscript
+                <span className="flex items-center justify-center bg-white rounded-full w-[46px] h-[46px] shrink-0">
+                  <ArrowRight className="w-5 h-5 text-[#060a10]" />
+                </span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              className="group w-full md:w-[300px] lg:w-[579px] shrink-0 aspect-[16/10] rounded-[20px] overflow-hidden"
+              variants={slideRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={VP}
+              transition={{ ...slowTransition, delay: 0.1 }}
+            >
+              <img
+                src={hyperlend.image}
+                alt={hyperlend.name}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>

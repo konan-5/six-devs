@@ -11,11 +11,11 @@ export const PROJECTS: Project[] = [
   {
     id: 1,
     name: "Gatewayz.ai",
-    image: "/projects/1.jpg",
+    image: "/projects/1.png",
     tagline: "AI gateway infrastructure",
     description:
-      "An intelligent routing layer for model and API traffic—built for low-latency inference, observability, and production-grade reliability at scale.",
-    stack: ["TypeScript", "Node.js", "Redis", "AWS"],
+      "Production-ready API gateway that unifies access to over 10000+ AI models from providers like OpenRouter, Portkey, Featherless, and Chutes via OpenAI-compatible endpoints.",
+    stack: ["Next.js", "FastAPI", "Supabase", "Vercel"],
   },
   {
     id: 2,
@@ -23,8 +23,8 @@ export const PROJECTS: Project[] = [
     image: "/projects/2.jpg",
     tagline: "Self-custodial wallet experience",
     description:
-      "A secure, user-first wallet for managing digital assets with clean UX, robust key handling, and seamless on-chain interactions.",
-    stack: ["React", "Solana", "Web3.js", "TypeScript"],
+      "A secure, user-first wallet for managing digital assets of 100+ chains with clean UX, robust key handling, and seamless on-chain interactions.",
+    stack: ["Java", "Android", "iOS", "Hedera SDK"],
   },
   {
     id: 3,
@@ -32,8 +32,8 @@ export const PROJECTS: Project[] = [
     image: "/projects/3.jpg",
     tagline: "Solana ecosystem tooling",
     description:
-      "High-performance tooling on Solana—optimized transaction flows, wallet connectivity, and infrastructure tuned for speed and composability.",
-    stack: ["Rust", "Solana", "Anchor", "React"],
+      "A next-generation Solana Layer 2 rollup scaling solution that transitions from optimistic to zero-knowledge validation to power high-performance GameFi, DePIN, and DeFi applications.",
+    stack: ["Rust", "Solana", "Rollup", "Bridge", "CDK"],
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
     image: "/projects/4.png",
     tagline: "On-chain lending experience",
     description:
-      "A lending platform experience focused on fast credit flows, transparent risk controls, and a clean interface for borrowing and liquidity participation.",
-    stack: ["React", "TypeScript", "Solana", "DeFi"],
+      "High-performance lending protocol on Hyperliquid, built for capital efficiency. It offers real-time leverage, dynamic rates, and deep liquidity access. Built for traders, quants, and market makers in need of efficient lending.",
+    stack: ["React", "TypeScript", "Hyperliquid", "Web3.js"],
   },
 ];
