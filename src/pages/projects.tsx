@@ -17,7 +17,7 @@ export default function ProjectsPage() {
   const { fadeUp, transition } = useMotionConfig();
 
   return (
-    <PageLayout newsletterVariant="cta">
+    <PageLayout newsletterVariant="cta" footerTopTone="dark">
       <section className="relative min-h-[541px] bg-[#060a10] overflow-hidden pt-20">
         <video
           autoPlay

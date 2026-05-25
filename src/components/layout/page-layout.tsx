@@ -4,14 +4,19 @@ import Footer from "@/components/layout/footer";
 interface PageLayoutProps {
   children: React.ReactNode;
   newsletterVariant?: "default" | "cta" | "dispatch";
+  footerTopTone?: "light" | "dark";
 }
 
-export default function PageLayout({ children, newsletterVariant }: PageLayoutProps) {
+export default function PageLayout({
+  children,
+  newsletterVariant,
+  footerTopTone,
+}: PageLayoutProps) {
   return (
     <>
       <Navbar />
       <main className="overflow-x-clip">{children}</main>
-      <Footer newsletterVariant={newsletterVariant} />
+      <Footer newsletterVariant={newsletterVariant} footerTopTone={footerTopTone} />
     </>
   );
 }

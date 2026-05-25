@@ -7,18 +7,29 @@ const LOGO_ASSET = "/assets/logo-mark.png";
 const CTA_IMAGE = "/assets/footer-cta-image.png";
 
 type NewsletterVariant = "default" | "cta" | "dispatch";
+type FooterTopTone = "light" | "dark";
+
+const FOOTER_TOP_BG: Record<FooterTopTone, string> = {
+  light: "#ffffff",
+  dark: "#111111",
+};
 
 interface FooterProps {
   newsletterVariant?: NewsletterVariant;
+  footerTopTone?: FooterTopTone;
 }
 
-export default function Footer({ newsletterVariant = "default" }: FooterProps) {
+export default function Footer({
+  newsletterVariant = "default",
+  footerTopTone = "light",
+}: FooterProps) {
   const [email, setEmail] = useState("");
+  const topBg = FOOTER_TOP_BG[footerTopTone];
 
   return (
     <footer
       className="relative text-white overflow-hidden"
-      style={{ background: "linear-gradient(to bottom, #ffffff 180px, #111111 180px)" }}
+      style={{ background: `linear-gradient(to bottom, ${topBg} 180px, #111111 180px)` }}
     >
       {/* Red glow ellipse */}
       <div
