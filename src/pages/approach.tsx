@@ -15,6 +15,7 @@ const TEAM_MEMBERS = [
   { nickname: "Rustinja", role: "Principal Engineer", image: "/avatars/4.jpg" },
   { nickname: "SerendipitySeeker", role: "Full-Stack Engineer", image: "/avatars/3.jpg" },
   { nickname: "Callum", role: "Backend Engineer", image: "/avatars/5.jpg" },
+  { nickname: "Ahmad Wafiuddin", role: "Web3 Engineer", image: "/avatars/6.png" },
 ];
 
 const PHASES = [
